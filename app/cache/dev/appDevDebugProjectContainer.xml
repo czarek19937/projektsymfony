@@ -18,6 +18,7 @@
       <parameter key="SensioFrameworkExtraBundle">Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle</parameter>
       <parameter key="AppBundle">AppBundle\AppBundle</parameter>
       <parameter key="StudentHelloBundle">Student\HelloBundle\StudentHelloBundle</parameter>
+      <parameter key="FilmyBundle">FilmyBundle\FilmyBundle</parameter>
       <parameter key="DebugBundle">Symfony\Bundle\DebugBundle\DebugBundle</parameter>
       <parameter key="WebProfilerBundle">Symfony\Bundle\WebProfilerBundle\WebProfilerBundle</parameter>
       <parameter key="SensioDistributionBundle">Sensio\Bundle\DistributionBundle\SensioDistributionBundle</parameter>
@@ -2956,6 +2957,10 @@
       <call method="addPath">
         <argument>/home/studenci/r12/s173152/public_html/src/Student/HelloBundle/Resources/views</argument>
         <argument>StudentHello</argument>
+      </call>
+      <call method="addPath">
+        <argument>/home/studenci/r12/s173152/public_html/src/FilmyBundle/Resources/views</argument>
+        <argument>Filmy</argument>
       </call>
       <call method="addPath">
         <argument>/home/studenci/r12/s173152/public_html/vendor/symfony/symfony/src/Symfony/Bundle/DebugBundle/Resources/views</argument>

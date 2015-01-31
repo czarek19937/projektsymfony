@@ -127,9 +127,26 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
 
         }
 
-        // student_hello_homepage
-        if (0 === strpos($pathinfo, '/hello') && preg_match('#^/hello/(?P<name>[^/]++)/(?P<surname>[^/]++)$#s', $pathinfo, $matches)) {
-            return $this->mergeDefaults(array_replace($matches, array('_route' => 'student_hello_homepage')), array (  '_controller' => 'Student\\HelloBundle\\Controller\\DefaultController::indexAction',));
+        // filmy_homepage
+        if (rtrim($pathinfo, '/') === '') {
+            if (substr($pathinfo, -1) !== '/') {
+                return $this->redirect($pathinfo.'/', 'filmy_homepage');
+            }
+
+            return array (  '_controller' => 'FilmyBundle\\Controller\\DefaultController::indexAction',  '_route' => 'filmy_homepage',);
+        }
+
+        if (0 === strpos($pathinfo, '/hello')) {
+            // filmy_helloworld
+            if (preg_match('#^/hello/(?P<name>[^/]++)$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'filmy_helloworld')), array (  '_controller' => 'FilmyBundle\\Controller\\DefaultController::helloworldAction',));
+            }
+
+            // student_hello_homepage
+            if (preg_match('#^/hello/(?P<name>[^/]++)/(?P<surname>[^/]++)$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'student_hello_homepage')), array (  '_controller' => 'Student\\HelloBundle\\Controller\\DefaultController::indexAction',));
+            }
+
         }
 
         // homepage

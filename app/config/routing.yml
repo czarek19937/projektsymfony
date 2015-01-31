@@ -1,3 +1,7 @@
+filmy:
+    resource: "@FilmyBundle/Resources/config/routing.yml"
+    prefix:   /
+
 student_hello:
     resource: "@StudentHelloBundle/Resources/config/routing.yml"
     prefix:   /
