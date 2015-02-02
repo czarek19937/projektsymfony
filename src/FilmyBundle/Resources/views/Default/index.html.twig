@@ -1,28 +1,16 @@
-<html>
-<body>
-<ol>
-Lista dostępnych filmów:
-<li><a href="{{path('filmy_gladiator')}}">Gladiator</a><a href="{{path('filmy_gladiator')}}"><img src="http://1.fwcdn.pl/po/09/36/936/7472818.3.jpg" /></a>
-<li>
-<li>
-</ol>
-<ol>
-Lista popularnych filmów(najczęściej wypożyczanych)
-<li>
-<li>
-<li>
-</ol>
-<ol>
-Lista najczęściej recenzowanych filmów
-<li>
-<li>
-<li>
-</ol>
+{% extends "FilmyBundle::bars.html.twig" %}
+
+{% block header %}
+<h1>Filmy</h1>
+{% endblock %}
+
+
+{% block content %}
 <ol>
 Lista gatunków z których spośród których można wybierać filmy
 <li><a href="{{path('filmy_commedy')}}">Komedia</a>
 <li>
 <li>
 </ol>
-</body>
-<html>
+
+{% endblock %}

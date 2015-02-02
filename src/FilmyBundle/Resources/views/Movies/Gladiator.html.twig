@@ -1,5 +1,6 @@
-<html>
-<body>
+{% extends "FilmyBundle::layout.html.twig" %}
+
+{% block content %}
 <br>Opis:<br>Generał Maximus - prawa ręka cesarza, szczęśliwy mąż i ojciec - w jednej chwili traci wszystko. Jako niewolnik-gladiator musi walczyć na arenie o przeżycie.<br>
 Okładka:<img src="http://1.fwcdn.pl/po/09/36/936/7472818.3.jpg" />
 <br>Lista aktorów:<br>
@@ -10,7 +11,6 @@ Oliver Reed<br>
 Cena wypożyczenia:<br>
 miliard
 <br>
-Wypożycz - to ma byc przycisk<br>
+<button type="button" class="btn btn-success">Wypożycz - to ma byc przycisk</button><br>
 if zalogowany widze recenzje
-</body>
-</html>
+{% endblock %}

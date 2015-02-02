@@ -7,51 +7,55 @@ class __TwigTemplate_28ff92187d44b5442e9afadd0b294a30a19b44a614928ad05493304ed6f
     {
         parent::__construct($env);
 
-        $this->parent = false;
+        // line 1
+        try {
+            $this->parent = $this->env->loadTemplate("FilmyBundle::bars.html.twig");
+        } catch (Twig_Error_Loader $e) {
+            $e->setTemplateFile($this->getTemplateName());
+            $e->setTemplateLine(1);
+
+            throw $e;
+        }
 
         $this->blocks = array(
+            'header' => array($this, 'block_header'),
+            'content' => array($this, 'block_content'),
         );
+    }
+
+    protected function doGetParent(array $context)
+    {
+        return "FilmyBundle::bars.html.twig";
     }
 
     protected function doDisplay(array $context, array $blocks = array())
     {
-        // line 1
-        echo "<html>
-<body>
-<ol>
-Lista dostępnych filmów:
-<li><a href=\"";
-        // line 5
-        echo $this->env->getExtension('routing')->getPath("filmy_gladiator");
-        echo "\">Gladiator</a><a href=\"";
-        echo $this->env->getExtension('routing')->getPath("filmy_gladiator");
-        echo "\"><img src=\"http://1.fwcdn.pl/po/09/36/936/7472818.3.jpg\" /></a>
-<li>
-<li>
-</ol>
-<ol>
-Lista popularnych filmów(najczęściej wypożyczanych)
-<li>
-<li>
-<li>
-</ol>
-<ol>
-Lista najczęściej recenzowanych filmów
-<li>
-<li>
-<li>
-</ol>
-<ol>
+        $this->parent->display($context, array_merge($this->blocks, $blocks));
+    }
+
+    // line 3
+    public function block_header($context, array $blocks = array())
+    {
+        // line 4
+        echo "<h1>Filmy</h1>
+";
+    }
+
+    // line 8
+    public function block_content($context, array $blocks = array())
+    {
+        // line 9
+        echo "<ol>
 Lista gatunków z których spośród których można wybierać filmy
 <li><a href=\"";
-        // line 23
+        // line 11
         echo $this->env->getExtension('routing')->getPath("filmy_commedy");
         echo "\">Komedia</a>
 <li>
 <li>
 </ol>
-</body>
-<html>";
+
+";
     }
 
     public function getTemplateName()
@@ -66,6 +70,6 @@ Lista gatunków z których spośród których można wybierać filmy
 
     public function getDebugInfo()
     {
-        return array (  48 => 23,  25 => 5,  19 => 1,);
+        return array (  52 => 11,  48 => 9,  45 => 8,  40 => 4,  37 => 3,  11 => 1,);
     }
 }
