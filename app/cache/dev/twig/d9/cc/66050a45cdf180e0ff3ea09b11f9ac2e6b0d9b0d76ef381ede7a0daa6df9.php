@@ -1,7 +1,7 @@
 <?php
 
-/* FilmyBundle:Default:index.html.twig */
-class __TwigTemplate_28ff92187d44b5442e9afadd0b294a30a19b44a614928ad05493304ed6f5d8e8 extends Twig_Template
+/* FilmyBundle:Types:Commedy.html.twig */
+class __TwigTemplate_d9cc66050a45cdf180e0ff3ea09b11f9ac2e6b0d9b0d76ef381ede7a0daa6df9 extends Twig_Template
 {
     public function __construct(Twig_Environment $env)
     {
@@ -42,11 +42,8 @@ Lista najczęściej recenzowanych filmów
 <li>
 </ol>
 <ol>
-Lista gatunków z których spośród których można wybierać filmy
-<li><a href=\"";
-        // line 23
-        echo $this->env->getExtension('routing')->getPath("filmy_commedy");
-        echo "\">Komedia</a>
+Komedie:
+<li>
 <li>
 <li>
 </ol>
@@ -56,7 +53,7 @@ Lista gatunków z których spośród których można wybierać filmy
 
     public function getTemplateName()
     {
-        return "FilmyBundle:Default:index.html.twig";
+        return "FilmyBundle:Types:Commedy.html.twig";
     }
 
     public function isTraitable()
@@ -66,6 +63,6 @@ Lista gatunków z których spośród których można wybierać filmy
 
     public function getDebugInfo()
     {
-        return array (  48 => 23,  25 => 5,  19 => 1,);
+        return array (  25 => 5,  19 => 1,);
     }
 }

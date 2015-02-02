@@ -18,4 +18,8 @@ class DefaultController extends Controller
     {
         return $this->render('FilmyBundle:Movies:Gladiator.html.twig', array());
     }
+    public function CommedyAction()
+    {
+        return $this->render('FilmyBundle:Types:Commedy.html.twig', array());
+    }
 }
