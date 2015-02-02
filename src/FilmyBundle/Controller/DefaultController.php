@@ -14,4 +14,8 @@ class DefaultController extends Controller
     {
         return $this->render('FilmyBundle:Default:helloworld.html.twig', array('name' => $name));
     }
+    public function GladiatorAction()
+    {
+        return $this->render('FilmyBundle:Movies:Gladiator.html.twig', array());
+    }
 }

@@ -1,0 +1,35 @@
+<html>
+<head>
+	{% block title %}
+	{% endblock %}
+
+<link rel="stylesheet" type="text/css" href="{{asset('bundles/czareksoplicowo/css/bootstrap.css')}}">
+</head>
+
+
+<body>
+	<header>
+		
+
+		
+		{% block header %}
+		{% endblock %}
+
+	</header>
+	<div class="row">
+		<div class="col-md-8">
+			{% block menu %}
+			{% endblock %}
+		</div>
+	</div>
+
+	<div class="container">
+			{% block content %}
+			{% endblock %}
+		
+	</div>
+	
+
+
+</body>
+</html>

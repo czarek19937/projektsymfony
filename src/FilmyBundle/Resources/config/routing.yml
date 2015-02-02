@@ -4,3 +4,6 @@ filmy_homepage:
 filmy_helloworld:
     path:     /hello/{name}
     defaults: { _controller: FilmyBundle:Default:helloworld }
+filmy_gladiator:
+    path:	/Movies/gladiator
+    defaults: { _controller: FilmyBundle:Default:Gladiator }
