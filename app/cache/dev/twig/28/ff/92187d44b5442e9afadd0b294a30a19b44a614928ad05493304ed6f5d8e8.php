@@ -33,22 +33,30 @@ class __TwigTemplate_28ff92187d44b5442e9afadd0b294a30a19b44a614928ad05493304ed6f
         $this->parent->display($context, array_merge($this->blocks, $blocks));
     }
 
-    // line 3
+    // line 5
     public function block_header($context, array $blocks = array())
     {
-        // line 4
-        echo "<h1>Filmy</h1>
+        // line 6
+        echo "
+Zalogowano jako ";
+        // line 7
+        echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute((isset($context["app"]) ? $context["app"] : $this->getContext($context, "app")), "user", array()), "username", array()), "html", null, true);
+        echo "
+
+
+<h1>Filmy</h1>
 ";
     }
 
-    // line 8
+    // line 14
     public function block_content($context, array $blocks = array())
     {
-        // line 9
-        echo "<ol>
+        // line 15
+        echo "
+<ol>
 Lista gatunków z których spośród których można wybierać filmy
 <li><a href=\"";
-        // line 11
+        // line 18
         echo $this->env->getExtension('routing')->getPath("filmy_commedy");
         echo "\">Komedia</a>
 <li>
@@ -70,6 +78,6 @@ Lista gatunków z których spośród których można wybierać filmy
 
     public function getDebugInfo()
     {
-        return array (  52 => 11,  48 => 9,  45 => 8,  40 => 4,  37 => 3,  11 => 1,);
+        return array (  60 => 18,  55 => 15,  52 => 14,  43 => 7,  40 => 6,  37 => 5,  11 => 1,);
     }
 }

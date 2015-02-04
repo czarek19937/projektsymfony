@@ -2,7 +2,7 @@ filmy_homepage:
     path:     /
     defaults: { _controller: FilmyBundle:Default:index }
 filmy_helloworld:
-    path:     /hello/{name}
+    path:     /hello
     defaults: { _controller: FilmyBundle:Default:helloworld }
 filmy_gladiator:
     path:	/Movies/gladiator

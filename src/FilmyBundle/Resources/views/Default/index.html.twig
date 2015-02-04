@@ -1,11 +1,18 @@
 {% extends "FilmyBundle::bars.html.twig" %}
+{% trans_default_domain 'FOSUserBundle' %}
+
 
 {% block header %}
+
+Zalogowano jako {{ app.user.username }}
+
+
 <h1>Filmy</h1>
 {% endblock %}
 
 
 {% block content %}
+
 <ol>
 Lista gatunków z których spośród których można wybierać filmy
 <li><a href="{{path('filmy_commedy')}}">Komedia</a>
