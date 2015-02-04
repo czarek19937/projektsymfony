@@ -43,8 +43,13 @@ Lista dostępnych filmów:
         echo $this->env->getExtension('routing')->getPath("filmy_gladiator");
         echo "\">Gladiator</a><a href=\"";
         echo $this->env->getExtension('routing')->getPath("filmy_gladiator");
-        echo "\"><img src=\"http://1.fwcdn.pl/po/09/36/936/7472818.3.jpg\" /></a>
-<li>
+        echo "\"><img src=\"http://1.fwcdn.pl/po/09/36/936/7472818.3.jpg\" height=\"400\" width=\"300\" /></a>
+<li><a href=\"";
+        // line 6
+        echo $this->env->getExtension('routing')->getPath("filmy_matrix");
+        echo "\">Matrix               </a><a href=\"";
+        echo $this->env->getExtension('routing')->getPath("filmy_matrix");
+        echo "\"><img src=\"http://1.fwcdn.pl/po/06/28/628/7495038.3.jpg\" height=\"400\" width=\"300\" /></a>
 <li>
 </ol>
 <ol>
@@ -74,6 +79,6 @@ Lista najczęściej recenzowanych filmów
 
     public function getDebugInfo()
     {
-        return array (  43 => 5,  39 => 3,  36 => 2,  11 => 1,);
+        return array (  49 => 6,  43 => 5,  39 => 3,  36 => 2,  11 => 1,);
     }
 }

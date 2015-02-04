@@ -7,6 +7,9 @@ filmy_helloworld:
 filmy_gladiator:
     path:	/Movies/gladiator
     defaults: { _controller: FilmyBundle:Default:Gladiator }
+filmy_matrix:
+    path:	/Movies/matrix
+    defaults: { _controller: FilmyBundle:Default:Matrix }
 filmy_commedy:
     path:	/Types/commedy
     defaults: { _controller: FilmyBundle:Default:Commedy }
