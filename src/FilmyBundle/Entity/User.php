@@ -24,4 +24,32 @@ class User extends BaseUser
         parent::__construct();
         // your own logic
     }
+
+     /**
+     * @var string
+     */
+    private $Adress;
+
+    /**
+     * Set Adress
+     *
+     * @param string $idFilmu
+     * @return User
+     */
+    public function setAdress($adress)
+    {
+        $this->adress = $adress;
+
+        return $this;
+    }
+
+    /**
+     * Get Adress
+     *
+     * @return string 
+     */
+    public function getAdress()
+    {
+        return $this->adress;
+    }
 }

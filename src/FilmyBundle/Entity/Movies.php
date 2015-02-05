@@ -17,7 +17,7 @@ class Movies
     /**
      * @var string
      */
-    private $tytuitle;
+    private $title;
 
     /**
      * @var string
@@ -56,26 +56,26 @@ class Movies
     }
 
     /**
-     * Set tytuitle
+     * Set title
      *
-     * @param string $tytuitle
+     * @param string $title
      * @return Movies
      */
-    public function setTytuitle($tytuitle)
+    public function setTitle($title)
     {
-        $this->tytuitle = $tytuitle;
+        $this->title = $title;
 
         return $this;
     }
 
     /**
-     * Get tytuitle
+     * Get title
      *
      * @return string 
      */
-    public function getTytuitle()
+    public function getTitle()
     {
-        return $this->tytuitle;
+        return $this->title;
     }
 
     /**

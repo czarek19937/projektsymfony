@@ -56,42 +56,14 @@ class __TwigTemplate_b9f3c0cf8bcf61c88a69e89b4247dac3a93abcfa92d8b8312e95db3430a
         // line 13
         echo "
 
-<h1>Filmy</h1>
 ";
     }
 
-    // line 18
+    // line 17
     public function block_menu($context, array $blocks = array())
     {
-        // line 19
-        echo "\t<ol>
-\t\tLista dostępnych filmów:
-\t\t<li><a href=\"";
-        // line 21
-        echo $this->env->getExtension('routing')->getPath("filmy_gladiator");
-        echo "\">Gladiator</a><a href=\"";
-        echo $this->env->getExtension('routing')->getPath("filmy_gladiator");
-        echo "\"><img src=\"http://1.fwcdn.pl/po/09/36/936/7472818.3.jpg\" height=\"400\" width=\"300\" /></a>
-\t\t<li><a href=\"";
-        // line 22
-        echo $this->env->getExtension('routing')->getPath("filmy_matrix");
-        echo "\">Matrix</a><a href=\"";
-        echo $this->env->getExtension('routing')->getPath("filmy_matrix");
-        echo "\"><img src=\"http://1.fwcdn.pl/po/06/28/628/7495038.3.jpg\" height=\"400\" width=\"300\" /></a>
-\t\t<li>
-\t</ol>
-\t<ol>
-\t\tLista popularnych filmów(najczęściej wypożyczanych)
-\t\t<li>
-\t\t<li>
-\t\t<li>
-\t</ol>
-\t<ol>
-\t\tLista najczęściej recenzowanych filmów
-\t\t<li>
-\t\t<li>
-\t\t<li>
-\t</ol>
+        // line 18
+        echo "
 ";
     }
 
@@ -107,6 +79,6 @@ class __TwigTemplate_b9f3c0cf8bcf61c88a69e89b4247dac3a93abcfa92d8b8312e95db3430a
 
     public function getDebugInfo()
     {
-        return array (  77 => 22,  71 => 21,  67 => 19,  64 => 18,  57 => 13,  51 => 9,  45 => 7,  43 => 6,  40 => 5,  37 => 4,  11 => 1,);
+        return array (  66 => 18,  63 => 17,  57 => 13,  51 => 9,  45 => 7,  43 => 6,  40 => 5,  37 => 4,  11 => 1,);
     }
 }

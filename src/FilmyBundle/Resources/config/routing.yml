@@ -16,3 +16,9 @@ filmy_commedy:
 filmy_review:
     path:   /Review
     defaults: { _controller: FilmyBundle:Default:Review }
+filmy_movies:
+    path:   /Movies
+    defaults: { _controller: FilmyBundle:Default:Movies }
+filmy_actors:
+    path:   /Actors
+    defaults: { _controller: FilmyBundle:Default:Actors }

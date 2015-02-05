@@ -9,10 +9,10 @@ FilmyBundle\Entity\Movies:
             generator:
                 strategy: AUTO
     fields:
-        tytuitle:
+        title:
             type: string
             length: 255
-            column: Tytuitle
+            column: Title
         description:
             type: string
             length: 255

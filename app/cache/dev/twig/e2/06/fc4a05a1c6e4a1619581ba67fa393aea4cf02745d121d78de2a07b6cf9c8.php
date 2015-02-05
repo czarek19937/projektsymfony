@@ -37,7 +37,7 @@ class __TwigTemplate_e206fc4a05a1c6e4a1619581ba67fa393aea4cf02745d121d78de2a07b6
     public function block_header($context, array $blocks = array())
     {
         // line 4
-        echo "\t\t<h1>PanTadeusz</h1>
+        echo "\t\t<h1>Review</h1>
 \t";
     }
 
