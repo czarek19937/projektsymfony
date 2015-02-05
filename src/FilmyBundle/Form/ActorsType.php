@@ -16,7 +16,7 @@ class ActorsType extends AbstractType
     {
         $builder
             ->add('name')
-            ->add('idFilmu')
+            ->add('idFilm')
         ;
     }
     

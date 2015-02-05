@@ -17,7 +17,7 @@ class Review
     /**
      * @var integer
      */
-    private $idFilmu;
+    private $idFilm;
 
     /**
      * @var string
@@ -41,26 +41,26 @@ class Review
     }
 
     /**
-     * Set idFilmu
+     * Set idFilm
      *
-     * @param integer $idFilmu
+     * @param integer $idFilm
      * @return Review
      */
-    public function setIdFilmu($idFilmu)
+    public function setIdFilm($idFilm)
     {
-        $this->idFilmu = $idFilmu;
+        $this->idFilm = $idFilm;
 
         return $this;
     }
 
     /**
-     * Get idFilmu
+     * Get idFilm
      *
      * @return integer 
      */
-    public function getIdFilmu()
+    public function getIdFilm()
     {
-        return $this->idFilmu;
+        return $this->idFilm;
     }
 
     /**

@@ -27,11 +27,6 @@ class Movies
     /**
      * @var string
      */
-    private $actors;
-
-    /**
-     * @var string
-     */
     private $genre;
 
     /**
@@ -99,29 +94,6 @@ class Movies
     public function getDescription()
     {
         return $this->description;
-    }
-
-    /**
-     * Set actors
-     *
-     * @param string $actors
-     * @return Movies
-     */
-    public function setActors($actors)
-    {
-        $this->actors = $actors;
-
-        return $this;
-    }
-
-    /**
-     * Get actors
-     *
-     * @return string 
-     */
-    public function getActors()
-    {
-        return $this->actors;
     }
 
     /**

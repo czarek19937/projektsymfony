@@ -13,7 +13,7 @@ FilmyBundle\Entity\Actors:
             type: string
             length: 255
             column: Name
-        idFilmu:
+        idFilm:
             type: integer
-            column: Id_filmu
+            column: Id_film
     lifecycleCallbacks: {  }

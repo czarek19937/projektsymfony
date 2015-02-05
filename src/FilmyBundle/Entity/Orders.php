@@ -37,12 +37,12 @@ class Orders
     /**
      * @var integer
      */
-    private $idFilmu;
+    private $idFilm;
 
     /**
      * @var integer
      */
-    private $idKlienta;
+    private $idClient;
 
 
     /**
@@ -148,48 +148,48 @@ class Orders
     }
 
     /**
-     * Set idFilmu
+     * Set idFilm
      *
-     * @param integer $idFilmu
+     * @param integer $idFilm
      * @return Orders
      */
-    public function setIdFilmu($idFilmu)
+    public function setIdFilm($idFilm)
     {
-        $this->idFilmu = $idFilmu;
+        $this->idFilm = $idFilm;
 
         return $this;
     }
 
     /**
-     * Get idFilmu
+     * Get idFilm
      *
      * @return integer 
      */
-    public function getIdFilmu()
+    public function getIdFilm()
     {
-        return $this->idFilmu;
+        return $this->idFilm;
     }
 
     /**
-     * Set idKlienta
+     * Set idClient
      *
-     * @param integer $idKlienta
+     * @param integer $idClient
      * @return Orders
      */
-    public function setIdKlienta($idKlienta)
+    public function setIdClient($idClient)
     {
-        $this->idKlienta = $idKlienta;
+        $this->idClient = $idClient;
 
         return $this;
     }
 
     /**
-     * Get idKlienta
+     * Get idClient
      *
      * @return integer 
      */
-    public function getIdKlienta()
+    public function getIdClient()
     {
-        return $this->idKlienta;
+        return $this->idClient;
     }
 }

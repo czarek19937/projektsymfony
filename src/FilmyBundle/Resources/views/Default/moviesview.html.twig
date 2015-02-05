@@ -1,0 +1,32 @@
+{% extends "FilmyBundle::bars.html.twig" %}
+
+
+
+    {% block header %}
+        <h1>MoviesView</h1>
+    {% endblock %}
+
+
+
+    {% block content %}
+        
+       <ul>
+        {% for moviesview in moviesview %}
+                <li> <img src="{{asset('bundles/filmy/images/')}}{{ moviesview.image }}.jpg" alt="Pan Tadeusz" class="img-thumbnail"><br>Tytuł:{{ moviesview.title|upper }}  <br>Opis:{{ moviesview.description }} <br>Gatunek:{{ moviesview.genre }} <br>Cena:{{ moviesview.price }} </li>
+        {% endfor %}
+    </ul>
+        
+    
+        
+ 
+        
+ 
+
+    {% endblock %}
+        
+        
+    
+
+
+
+

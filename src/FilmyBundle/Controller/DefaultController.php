@@ -10,6 +10,8 @@ use FilmyBundle\Entity\Movies;
 use FilmyBundle\Form\MoviesType;
 use FilmyBundle\Entity\Actors;
 use FilmyBundle\Form\ActorsType;
+use FilmyBundle\Entity\Orders;
+use FilmyBundle\Form\OrdersType;
 use Symfony\Component\HttpFoundation\Response;
 
 class DefaultController extends Controller
@@ -33,7 +35,7 @@ class DefaultController extends Controller
             && $form->isValid()
             )   {
             $em = $this->getDoctrine()->getManager();
-            $em->persist($comment);
+            $em->persist($review);
             $em->flush();
             return $this->redirect($this->generateUrl('filmy_review'));
         }
@@ -54,7 +56,7 @@ class DefaultController extends Controller
             && $form->isValid()
             )   {
             $em = $this->getDoctrine()->getManager();
-            $em->persist($comment);
+            $em->persist($movies);
             $em->flush();
             return $this->redirect($this->generateUrl('filmy_movies'));
         }
@@ -63,6 +65,18 @@ class DefaultController extends Controller
 
             $form->handleRequest($request);
 
+    }
+
+    public function MoviesViewAction(Request $request)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $repository = $em->getRepository("FilmyBundle:Movies");
+
+        $moviesview = $repository->findAll();
+
+        return $this->render(
+                            'FilmyBundle:Default:moviesview.html.twig', array( 'moviesview' => $moviesview));
+        
     }
 
     public function ActorsAction(Request $request)
@@ -76,12 +90,33 @@ class DefaultController extends Controller
             && $form->isValid()
             )   {
             $em = $this->getDoctrine()->getManager();
-            $em->persist($comment);
+            $em->persist($actors);
             $em->flush();
             return $this->redirect($this->generateUrl('filmy_actors'));
         }
 
             return $this->render('FilmyBundle:Default:actors.html.twig', array('form'=>$form->createView()));
+
+            $form->handleRequest($request);
+
+    }
+    public function OrdersAction(Request $request)
+    {
+
+        $orders = new Orders();
+        
+        $form = $this ->createForm(new OrdersType(), $orders);
+        if ($request->isMethod('POST')
+            && $form->handleRequest($request)
+            && $form->isValid()
+            )   {
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($orders);
+            $em->flush();
+            return $this->redirect($this->generateUrl('filmy_orders'));
+        }
+
+            return $this->render('FilmyBundle:Default:orders.html.twig', array('form'=>$form->createView()));
 
             $form->handleRequest($request);
 

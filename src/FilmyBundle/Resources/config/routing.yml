@@ -22,3 +22,9 @@ filmy_movies:
 filmy_actors:
     path:   /Actors
     defaults: { _controller: FilmyBundle:Default:Actors }
+filmy_orders:
+    path:   /Orders
+    defaults: { _controller: FilmyBundle:Default:Orders }
+filmy_moviesview:
+    path:   /MoviesView
+    defaults: { _controller: FilmyBundle:Default:MoviesView }

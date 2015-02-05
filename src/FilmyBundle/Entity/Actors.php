@@ -22,7 +22,7 @@ class Actors
     /**
      * @var integer
      */
-    private $idFilmu;
+    private $idFilm;
 
 
     /**
@@ -59,25 +59,25 @@ class Actors
     }
 
     /**
-     * Set idFilmu
+     * Set idFilm
      *
-     * @param integer $idFilmu
+     * @param integer $idFilm
      * @return Actors
      */
-    public function setIdFilmu($idFilmu)
+    public function setIdFilm($idFilm)
     {
-        $this->idFilmu = $idFilmu;
+        $this->idFilm = $idFilm;
 
         return $this;
     }
 
     /**
-     * Get idFilmu
+     * Get idFilm
      *
      * @return integer 
      */
-    public function getIdFilmu()
+    public function getIdFilm()
     {
-        return $this->idFilmu;
+        return $this->idFilm;
     }
 }

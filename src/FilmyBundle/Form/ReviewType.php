@@ -15,7 +15,7 @@ class ReviewType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('idFilmu')
+            ->add('idFilm')
             ->add('title')
             ->add('text')
         ;

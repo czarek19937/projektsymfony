@@ -17,10 +17,6 @@ FilmyBundle\Entity\Movies:
             type: string
             length: 255
             column: Description
-        actors:
-            type: string
-            length: 255
-            column: Actors
         genre:
             type: string
             length: 255

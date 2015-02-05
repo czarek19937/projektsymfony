@@ -46,7 +46,7 @@ class __TwigTemplate_ae916424fae76fc315a5699b69b7b752c347ea3e85da7f7cf7441d41f99
     {
         // line 10
         echo "\t\t
-\t\t<h2>Dodaj Filmy</h2>
+\t\t<h2>Dodaj Aktorów</h2>
 \t\t
 \t\t<form method=\"POST\">
 \t\t";

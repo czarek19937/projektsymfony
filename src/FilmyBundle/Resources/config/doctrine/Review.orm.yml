@@ -1,6 +1,7 @@
 FilmyBundle\Entity\Review:
     type: entity
     table: null
+    repositoryClass: FilmyBundle\Entity\ReviewRepository
     id:
         id:
             type: integer
@@ -8,9 +9,9 @@ FilmyBundle\Entity\Review:
             generator:
                 strategy: AUTO
     fields:
-        idFilmu:
+        idFilm:
             type: integer
-            column: Id_filmu
+            column: Id_film
         title:
             type: string
             length: 255
