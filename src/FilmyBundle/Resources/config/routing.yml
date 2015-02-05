@@ -13,3 +13,6 @@ filmy_matrix:
 filmy_commedy:
     path:	/Types/commedy
     defaults: { _controller: FilmyBundle:Default:Commedy }
+filmy_review:
+    path:   /Review
+    defaults: { _controller: FilmyBundle:Default:Review }

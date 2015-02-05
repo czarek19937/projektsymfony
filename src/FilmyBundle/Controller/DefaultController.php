@@ -3,6 +3,10 @@
 namespace FilmyBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\Request;
+use FilmyBundle\Entity\Review;
+use FilmyBundle\Form\ReviewType;
+use Symfony\Component\HttpFoundation\Response;
 
 class DefaultController extends Controller
 {
@@ -14,6 +18,30 @@ class DefaultController extends Controller
     {
         return $this->render('FilmyBundle:Default:helloworld.html.twig', array('name' => $name));
     }
+    public function ReviewAction(Request $request)
+    {
+
+        $review = new Review();
+        
+        $form = $this ->createForm(new ReviewType(), $review);
+        if ($request->isMethod('POST')
+            && $form->handleRequest($request)
+            && $form->isValid()
+            )   {
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($comment);
+            $em->flush();
+            return $this->redirect($this->generateUrl('filmy_review'));
+        }
+
+            return $this->render('FilmyBundle:Default:review.html.twig', array('form'=>$form->createView()));
+
+            $form->handleRequest($request);
+
+    }
+
+
+
     public function GladiatorAction()
     {
         return $this->render('FilmyBundle:Movies:Gladiator.html.twig', array());

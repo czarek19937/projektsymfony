@@ -159,6 +159,11 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
             return array (  '_controller' => 'FilmyBundle\\Controller\\DefaultController::CommedyAction',  '_route' => 'filmy_commedy',);
         }
 
+        // filmy_review
+        if ($pathinfo === '/Review') {
+            return array (  '_controller' => 'FilmyBundle\\Controller\\DefaultController::ReviewAction',  '_route' => 'filmy_review',);
+        }
+
         // student_hello_homepage
         if (0 === strpos($pathinfo, '/hello') && preg_match('#^/hello/(?P<name>[^/]++)/(?P<surname>[^/]++)$#s', $pathinfo, $matches)) {
             return $this->mergeDefaults(array_replace($matches, array('_route' => 'student_hello_homepage')), array (  '_controller' => 'Student\\HelloBundle\\Controller\\DefaultController::indexAction',));

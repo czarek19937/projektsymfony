@@ -1,0 +1,22 @@
+FilmyBundle\Entity\Review:
+    type: entity
+    table: null
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        idFilmu:
+            type: integer
+            column: Id_filmu
+        title:
+            type: string
+            length: 255
+            column: Title
+        text:
+            type: string
+            length: 255
+            column: Text
+    lifecycleCallbacks: {  }

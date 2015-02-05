@@ -1,0 +1,36 @@
+FilmyBundle\Entity\Movies:
+    type: entity
+    table: null
+    repositoryClass: FilmyBundle\Entity\MoviesRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        tytuitle:
+            type: string
+            length: 255
+            column: Tytuitle
+        description:
+            type: string
+            length: 255
+            column: Description
+        actors:
+            type: string
+            length: 255
+            column: Actors
+        genre:
+            type: string
+            length: 255
+            column: Genre
+        price:
+            type: string
+            length: 255
+            column: Price
+        image:
+            type: string
+            length: 255
+            column: Image
+    lifecycleCallbacks: {  }

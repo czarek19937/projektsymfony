@@ -1,0 +1,19 @@
+FilmyBundle\Entity\Actors:
+    type: entity
+    table: null
+    repositoryClass: FilmyBundle\Entity\ActorsRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        name:
+            type: string
+            length: 255
+            column: Name
+        idFilmu:
+            type: integer
+            column: Id_filmu
+    lifecycleCallbacks: {  }

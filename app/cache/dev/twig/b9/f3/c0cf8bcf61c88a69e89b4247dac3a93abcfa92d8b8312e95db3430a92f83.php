@@ -18,6 +18,7 @@ class __TwigTemplate_b9f3c0cf8bcf61c88a69e89b4247dac3a93abcfa92d8b8312e95db3430a
         }
 
         $this->blocks = array(
+            'header' => array($this, 'block_header'),
             'menu' => array($this, 'block_menu'),
         );
     }
@@ -32,38 +33,65 @@ class __TwigTemplate_b9f3c0cf8bcf61c88a69e89b4247dac3a93abcfa92d8b8312e95db3430a
         $this->parent->display($context, array_merge($this->blocks, $blocks));
     }
 
-    // line 2
+    // line 4
+    public function block_header($context, array $blocks = array())
+    {
+        // line 5
+        echo "
+";
+        // line 6
+        if ($this->getAttribute($this->getAttribute((isset($context["app"]) ? $context["app"] : null), "user", array(), "any", false, true), "username", array(), "any", true, true)) {
+            // line 7
+            echo "    <p>Zalogowano jako ";
+            echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute((isset($context["app"]) ? $context["app"] : $this->getContext($context, "app")), "user", array()), "username", array()), "html", null, true);
+            echo "</p>
+";
+        } else {
+            // line 9
+            echo "\t<p>Niezalogowany użytkownik<br></p>
+\t<a href=\"http://v-ie.uek.krakow.pl/~s173152/app_dev.php/login\">Zaloguj się</a>
+\t<br><a href=\"http://v-ie.uek.krakow.pl/~s173152/app_dev.php/register\">Zarejestruj się</a>
+";
+        }
+        // line 13
+        echo "
+
+<h1>Filmy</h1>
+";
+    }
+
+    // line 18
     public function block_menu($context, array $blocks = array())
     {
-        // line 3
-        echo "<ol>
-Lista dostępnych filmów:
-<li><a href=\"";
-        // line 5
+        // line 19
+        echo "\t<ol>
+\t\tLista dostępnych filmów:
+\t\t<li><a href=\"";
+        // line 21
         echo $this->env->getExtension('routing')->getPath("filmy_gladiator");
         echo "\">Gladiator</a><a href=\"";
         echo $this->env->getExtension('routing')->getPath("filmy_gladiator");
         echo "\"><img src=\"http://1.fwcdn.pl/po/09/36/936/7472818.3.jpg\" height=\"400\" width=\"300\" /></a>
-<li><a href=\"";
-        // line 6
+\t\t<li><a href=\"";
+        // line 22
         echo $this->env->getExtension('routing')->getPath("filmy_matrix");
-        echo "\">Matrix               </a><a href=\"";
+        echo "\">Matrix</a><a href=\"";
         echo $this->env->getExtension('routing')->getPath("filmy_matrix");
         echo "\"><img src=\"http://1.fwcdn.pl/po/06/28/628/7495038.3.jpg\" height=\"400\" width=\"300\" /></a>
-<li>
-</ol>
-<ol>
-Lista popularnych filmów(najczęściej wypożyczanych)
-<li>
-<li>
-<li>
-</ol>
-<ol>
-Lista najczęściej recenzowanych filmów
-<li>
-<li>
-<li>
-</ol>
+\t\t<li>
+\t</ol>
+\t<ol>
+\t\tLista popularnych filmów(najczęściej wypożyczanych)
+\t\t<li>
+\t\t<li>
+\t\t<li>
+\t</ol>
+\t<ol>
+\t\tLista najczęściej recenzowanych filmów
+\t\t<li>
+\t\t<li>
+\t\t<li>
+\t</ol>
 ";
     }
 
@@ -79,6 +107,6 @@ Lista najczęściej recenzowanych filmów
 
     public function getDebugInfo()
     {
-        return array (  49 => 6,  43 => 5,  39 => 3,  36 => 2,  11 => 1,);
+        return array (  77 => 22,  71 => 21,  67 => 19,  64 => 18,  57 => 13,  51 => 9,  45 => 7,  43 => 6,  40 => 5,  37 => 4,  11 => 1,);
     }
 }

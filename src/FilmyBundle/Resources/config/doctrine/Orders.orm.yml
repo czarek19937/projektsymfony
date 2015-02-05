@@ -1,0 +1,33 @@
+FilmyBundle\Entity\Orders:
+    type: entity
+    table: null
+    repositoryClass: FilmyBundle\Entity\OrdersRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        status:
+            type: string
+            length: 255
+            column: Status
+        term:
+            type: date
+            column: Term
+        form:
+            type: string
+            length: 255
+            column: Form
+        conditions:
+            type: string
+            length: 255
+            column: Conditions
+        idFilmu:
+            type: integer
+            column: Id_filmu
+        idKlienta:
+            type: integer
+            column: Id_klienta
+    lifecycleCallbacks: {  }
