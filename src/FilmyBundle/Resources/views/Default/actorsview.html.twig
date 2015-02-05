@@ -1,0 +1,32 @@
+{% extends "FilmyBundle::bars.html.twig" %}
+
+
+
+    {% block header %}
+        <h1>ActorsView</h1>
+    {% endblock %}
+
+
+
+    {% block content %}
+        
+       <ul>
+        {% for actorsview in actorsview %}
+                <li> Id:{{ actorsview.id|upper }}  <br>Imie i nazwisko:{{ actorsview.name }} <br>Id_filmu:{{ actorsview.idfilm }}</li>
+        {% endfor %}
+    </ul>
+        
+    
+        
+ 
+        
+ 
+
+    {% endblock %}
+        
+        
+    
+
+
+
+

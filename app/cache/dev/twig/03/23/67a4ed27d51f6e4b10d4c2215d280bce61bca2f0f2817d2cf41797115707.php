@@ -56,10 +56,12 @@ class __TwigTemplate_032367a4ed27d51f6e4b10d4c2215d280bce61bca2f0f2817d2cf417971
             echo "                <li> <img src=\"";
             echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/filmy/images/"), "html", null, true);
             echo twig_escape_filter($this->env, $this->getAttribute($context["moviesview"], "image", array()), "html", null, true);
-            echo ".jpg\" alt=\"Pan Tadeusz\" class=\"img-thumbnail\"><br>Tytuł:";
+            echo ".jpg\" alt=\"Filmy\" class=\"img-thumbnail\" height=\"42\" width=\"42\"><br>Tytuł:";
             echo twig_escape_filter($this->env, twig_upper_filter($this->env, $this->getAttribute($context["moviesview"], "title", array())), "html", null, true);
             echo "  <br>Opis:";
             echo twig_escape_filter($this->env, $this->getAttribute($context["moviesview"], "description", array()), "html", null, true);
+            echo " <br>Id_filmu:";
+            echo twig_escape_filter($this->env, $this->getAttribute($context["moviesview"], "id", array()), "html", null, true);
             echo " <br>Gatunek:";
             echo twig_escape_filter($this->env, $this->getAttribute($context["moviesview"], "genre", array()), "html", null, true);
             echo " <br>Cena:";
@@ -94,6 +96,6 @@ class __TwigTemplate_032367a4ed27d51f6e4b10d4c2215d280bce61bca2f0f2817d2cf417971
 
     public function getDebugInfo()
     {
-        return array (  74 => 17,  56 => 15,  52 => 14,  48 => 12,  45 => 11,  40 => 6,  37 => 5,  11 => 1,);
+        return array (  76 => 17,  56 => 15,  52 => 14,  48 => 12,  45 => 11,  40 => 6,  37 => 5,  11 => 1,);
     }
 }

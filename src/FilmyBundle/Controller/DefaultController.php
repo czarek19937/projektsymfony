@@ -14,16 +14,37 @@ use FilmyBundle\Entity\Orders;
 use FilmyBundle\Form\OrdersType;
 use Symfony\Component\HttpFoundation\Response;
 
+
 class DefaultController extends Controller
 {
     public function indexAction()
     {
         return $this->render('FilmyBundle:Default:index.html.twig', array());
     }
+
+
+
+    public function QueryAction()
+    {
+        $em = $this->getDoctrine()->getManager();
+        $query = $em->createQuery(
+                'SELECT p FROM FilmyBundle:Movies p WHERE p.price > :price ORDER BY p.price ASC'
+        )->setParameter('price', '100');
+
+        $movies = $query->getResult();
+        
+    }
+
+
+
+
     public function HelloWorldAction($name)
     {
         return $this->render('FilmyBundle:Default:helloworld.html.twig', array('name' => $name));
     }
+
+
+
     public function ReviewAction(Request $request)
     {
 
@@ -45,6 +66,9 @@ class DefaultController extends Controller
             $form->handleRequest($request);
 
     }
+
+
+
     public function MoviesAction(Request $request)
     {
 
@@ -67,6 +91,9 @@ class DefaultController extends Controller
 
     }
 
+
+
+
     public function MoviesViewAction(Request $request)
     {
         $em = $this->getDoctrine()->getManager();
@@ -78,6 +105,9 @@ class DefaultController extends Controller
                             'FilmyBundle:Default:moviesview.html.twig', array( 'moviesview' => $moviesview));
         
     }
+
+
+
 
     public function ActorsAction(Request $request)
     {
@@ -100,6 +130,24 @@ class DefaultController extends Controller
             $form->handleRequest($request);
 
     }
+
+
+
+
+    public function ActorsViewAction(Request $request)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $repository = $em->getRepository("FilmyBundle:Actors");
+
+        $actorsview = $repository->findAll();
+
+        return $this->render(
+                            'FilmyBundle:Default:actorsview.html.twig', array( 'actorsview' => $actorsview));
+        
+    }
+
+
+
     public function OrdersAction(Request $request)
     {
 
@@ -128,12 +176,21 @@ class DefaultController extends Controller
     {
         return $this->render('FilmyBundle:Movies:Gladiator.html.twig', array());
     }
+
+
+
     public function MatrixAction()
     {
         return $this->render('FilmyBundle:Movies:Matrix.html.twig', array());
     }
+
+
+
     public function CommedyAction()
     {
         return $this->render('FilmyBundle:Types:Commedy.html.twig', array());
     }
+
+
+
 }

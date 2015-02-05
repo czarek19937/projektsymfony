@@ -28,3 +28,9 @@ filmy_orders:
 filmy_moviesview:
     path:   /MoviesView
     defaults: { _controller: FilmyBundle:Default:MoviesView }
+filmy_actorsview:
+    path:   /ActorsView
+    defaults: { _controller: FilmyBundle:Default:ActorsView }
+filmy_query:
+    path:   /Query
+    defaults: { _controller: FilmyBundle:Default:Query }
