@@ -26,13 +26,40 @@ class DefaultController extends Controller
 
     public function QueryAction()
     {
-        $em = $this->getDoctrine()->getManager();
-        $query = $em->createQuery(
-                'SELECT p FROM FilmyBundle:Movies p WHERE p.price > :price ORDER BY p.price ASC'
-        )->setParameter('price', '100');
+        /*$repository = $this->getDoctrine()
+            ->getRepository('FilmyBundle:Movies');
+
+        $query = $repository->createQueryBuilder('m')//jedna opcja zapytan
+            ->select('m.title')
+            ->getQuery();
+
 
         $movies = $query->getResult();
+        'movies' => $movies, ->do tablicy return
+        */
+        $em = $this->getDoctrine()->getEntityManager();
+        $qb = $em->createQueryBuilder();
+        $em = $qb->getEntityManager();
+        $query = $em->createQuery( 'SELECT a FROM FilmyBundle:Movies a' );//druga opcja zapytan
+        $moviesdisplay = $query->getResult(); // array of User objects
+        //echo $users[1]['title'];
+        //echo $movies[0]['title'];
+        //echo $moviesdisplay[1]['title'];
+
         
+        return $this->render('FilmyBundle:Default:query.html.twig', array('moviesdisplay' => $moviesdisplay));
+        
+    }
+
+    public function moviesdisplayAction($moviesdisplay)
+    {
+        $em = $this->getDoctrine()->getEntityManager();
+        $qb = $em->createQueryBuilder();
+        $em = $qb->getEntityManager();
+        $query = $em->createQuery( 'SELECT a.image FROM FilmyBundle:Movies a' );//druga opcja zapytan
+        $moviesdisplay = $query->getResult(); // array of User objects
+        
+        return $this->render('FilmyBundle:Movies:'.$moviesdisplay.'.html.twig', array('moviesdisplay' => $moviesdisplay));
     }
 
 
@@ -172,16 +199,14 @@ class DefaultController extends Controller
 
 
 
-    public function GladiatorAction()
+    public function OjciecChrzestnyAction()
     {
-        return $this->render('FilmyBundle:Movies:Gladiator.html.twig', array());
-    }
-
-
-
-    public function MatrixAction()
-    {
-        return $this->render('FilmyBundle:Movies:Matrix.html.twig', array());
+        $em = $this->getDoctrine()->getEntityManager();
+        $qb = $em->createQueryBuilder();
+        $em = $qb->getEntityManager();
+        $query = $em->createQuery( 'SELECT a FROM FilmyBundle:Movies a' );//druga opcja zapytan
+        $moviesdisplay = $query->getResult(); // array of User objects
+        return $this->render('FilmyBundle:Movies:ojciecchrzestny.html.twig', array('moviesdisplay' => $moviesdisplay));
     }
 
 

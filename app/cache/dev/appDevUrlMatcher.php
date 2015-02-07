@@ -141,17 +141,9 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
             return array (  '_controller' => 'FilmyBundle\\Controller\\DefaultController::helloworldAction',  '_route' => 'filmy_helloworld',);
         }
 
-        if (0 === strpos($pathinfo, '/Movies')) {
-            // filmy_gladiator
-            if ($pathinfo === '/Movies/gladiator') {
-                return array (  '_controller' => 'FilmyBundle\\Controller\\DefaultController::GladiatorAction',  '_route' => 'filmy_gladiator',);
-            }
-
-            // filmy_matrix
-            if ($pathinfo === '/Movies/matrix') {
-                return array (  '_controller' => 'FilmyBundle\\Controller\\DefaultController::MatrixAction',  '_route' => 'filmy_matrix',);
-            }
-
+        // filmy_moviesdisplay
+        if (0 === strpos($pathinfo, '/Movies') && preg_match('#^/Movies/(?P<moviesdisplay>[^/]++)$#s', $pathinfo, $matches)) {
+            return $this->mergeDefaults(array_replace($matches, array('_route' => 'filmy_moviesdisplay')), array (  '_controller' => 'FilmyBundle\\Controller\\DefaultController::MoviesAction',));
         }
 
         // filmy_commedy

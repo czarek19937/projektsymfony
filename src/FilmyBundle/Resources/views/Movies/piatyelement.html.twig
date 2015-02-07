@@ -1,0 +1,38 @@
+{% extends "FilmyBundle::bars.html.twig" %}
+
+
+
+    {% block header %}
+        <h1>{{attribute(moviesdisplay, 12).title}}</h1>
+    {% endblock %}
+
+
+
+    {% block content %}
+        
+      
+   <ul>        
+                <li><img src="{{asset('bundles/filmy/images/')}}{{attribute(moviesdisplay, 12).image}}.jpg" alt="Filmy" class="img-thumbnail" height="42" width="42">
+                        <br>Tytul:{{attribute(moviesdisplay, 12).title}}
+                        <br>Opis:{{attribute(moviesdisplay, 12).description}}
+                        <br>Id_filmu:{{attribute(moviesdisplay, 12).id}}
+                        <br>Gatunek:{{attribute(moviesdisplay, 12).genre}}
+                        <br>Cena:{{attribute(moviesdisplay, 12).price}}
+                </li>
+        
+        
+    </ul>
+    
+        
+ 
+        
+ 
+
+    {% endblock %}
+        
+        
+    
+
+
+
+

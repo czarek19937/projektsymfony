@@ -12,4 +12,8 @@ use Doctrine\ORM\EntityRepository;
  */
 class MoviesRepository extends EntityRepository
 {
+	public function findAllOrderedByTitle()
+     {
+         	
+     }
 }

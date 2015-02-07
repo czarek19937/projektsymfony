@@ -5,8 +5,8 @@ namespace FilmyBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Movies
- */
+  * @ORM\Entity(repositoryClass="FilmyBundle\Entity\MoviesRepository")
+  */
 class Movies
 {
     /**

@@ -4,12 +4,9 @@ filmy_homepage:
 filmy_helloworld:
     path:     /hello
     defaults: { _controller: FilmyBundle:Default:helloworld }
-filmy_gladiator:
-    path:	/Movies/gladiator
-    defaults: { _controller: FilmyBundle:Default:Gladiator }
-filmy_matrix:
-    path:	/Movies/matrix
-    defaults: { _controller: FilmyBundle:Default:Matrix }
+filmy_moviesdisplay:
+    path:	/Movies/{moviesdisplay}
+    defaults: { _controller: FilmyBundle:Default:Movies }
 filmy_commedy:
     path:	/Types/commedy
     defaults: { _controller: FilmyBundle:Default:Commedy }
