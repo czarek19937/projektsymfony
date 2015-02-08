@@ -47,11 +47,46 @@ class __TwigTemplate_e1bd2d91722b6ff3469f7e410963a5a5debc35f447f7ca09fe309d5bded
         // line 12
         echo "        
       
-   <ul>
+   ";
+        // line 14
+        $context["foo"] = "0";
+        // line 15
+        echo "   
+   
        
-        
-    </ul>
-    
+        ";
+        // line 18
+        echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute((isset($context["reviews"]) ? $context["reviews"] : $this->getContext($context, "reviews")), 0), "idfilm", array()), "html", null, true);
+        echo "
+";
+        // line 19
+        echo twig_escape_filter($this->env, twig_length_filter($this->env, (isset($context["reviews"]) ? $context["reviews"] : $this->getContext($context, "reviews"))), "html", null, true);
+        echo "
+
+        ";
+        // line 21
+        $context['_parent'] = (array) $context;
+        $context['_seq'] = twig_ensure_traversable($context["reviews"]);
+        foreach ($context['_seq'] as $context["_key"] => $context["reviews"]) {
+            // line 22
+            echo "                 id filmu:";
+            echo twig_escape_filter($this->env, $this->getAttribute($context["reviews"], "idfilm", array()), "html", null, true);
+            echo "
+
+        ";
+        }
+        $_parent = $context['_parent'];
+        unset($context['_seq'], $context['_iterated'], $context['_key'], $context['reviews'], $context['_parent'], $context['loop']);
+        $context = array_intersect_key($context, $_parent) + $_parent;
+        // line 25
+        echo "        ";
+        echo twig_escape_filter($this->env, twig_length_filter($this->env, (isset($context["reviews"]) ? $context["reviews"] : $this->getContext($context, "reviews"))), "html", null, true);
+        echo "
+
+
+        ";
+        // line 38
+        echo "    
         
  
         
@@ -72,6 +107,6 @@ class __TwigTemplate_e1bd2d91722b6ff3469f7e410963a5a5debc35f447f7ca09fe309d5bded
 
     public function getDebugInfo()
     {
-        return array (  48 => 12,  45 => 11,  40 => 6,  37 => 5,  11 => 1,);
+        return array (  89 => 38,  82 => 25,  72 => 22,  68 => 21,  63 => 19,  59 => 18,  54 => 15,  52 => 14,  48 => 12,  45 => 11,  40 => 6,  37 => 5,  11 => 1,);
     }
 }

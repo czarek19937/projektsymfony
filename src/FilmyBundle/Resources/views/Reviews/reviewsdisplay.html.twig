@@ -11,10 +11,32 @@
     {% block content %}
         
       
-   <ul>
+   
+   
+   
        
-        
-    </ul>
+        {{ attribute(reviews, 0).idfilm }}
+        {{reviews|length}}
+
+        {% for reviews in reviews %}
+                 id filmu:{{ reviews.idfilm }}
+                 {% set foo = "1" %}
+        {% if {{ reviews.idfilm }}==}
+
+        {% endfor %}
+        {{reviews|length}}
+
+
+        {#
+        {% for reviews in reviews if reviews.idfilm==1%}
+                 id filmu:{{ reviews.idfilm }}
+
+        {% endfor %}
+
+            {% if reviews|length == 1 %}
+        {{reviews|length}}
+        {% endif %}
+        #}
     
         
  

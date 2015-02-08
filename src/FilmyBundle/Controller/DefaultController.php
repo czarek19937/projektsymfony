@@ -95,19 +95,16 @@ class DefaultController extends Controller
 
     public function ReviewsDisplayAction()
     {
-        $em = $this->getDoctrine()->getManager();
-        $movie = $em->getRepository('FilmyBundle:Movies')->findAll();
-        $em = $this->getDoctrine()->getManager();
-        $review = $em->getRepository('FilmyBundle:Review')->findAll();
+        $movie = $this->getDoctrine()
+            ->getRepository('FilmyBundle:Movies')->findAll();
+            //pobierasz wszystkich aktorow
+        $review = $this->getDoctrine()
+            ->getRepository('FilmyBundle:Review')->findAll();
 
-        if (!$movie) {
-            throw $this->createNotFoundException('Unable to find Thread entity.');
-        }
         return $this->render('FilmyBundle:Reviews:reviewsdisplay.html.twig', array(
-            'movies' => $movie,
-            'reviews' => $review
+        'movies' => $movie,
+        'reviews' => $review
         ));
-        
     }
 
 
