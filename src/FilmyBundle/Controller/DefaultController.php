@@ -29,11 +29,11 @@ class DefaultController extends Controller
         
 
         $movies = $this->getDoctrine()
-            ->getRepository('FilmyBundle:Movies')->findAll();;
+            ->getRepository('FilmyBundle:Movies')->findAll();
             //pobierasz wszystkich aktorow
         $actors = $this->getDoctrine()
-            ->getRepository('FilmyBundle:Actors')->findAll();;
-            
+            ->getRepository('FilmyBundle:Actors')->findAll();
+
         return $this->render('FilmyBundle:Default:query.html.twig', array(
         'moviesdisplay' => $movies,
         'actors' => $actors
@@ -44,22 +44,20 @@ class DefaultController extends Controller
         
     }
 
-    public function MoviesDisplayAction($moviesdisplay)
+    public function MoviesDisplayAction($id)
     {
-        $em = $this->getDoctrine()->getEntityManager();
-        $qb = $em->createQueryBuilder();
-        $em = $qb->getEntityManager();
-        $query = $em->createQuery( 'SELECT a.image FROM FilmyBundle:Movies a' );//druga opcja zapytan
-        $moviesdisplay = $query->getArrayResult(); // array of User objects
-        
-        
-        $ile = count($moviesdisplay);
-        echo $ile;
+        $em = $this->getDoctrine()->getManager();
+        $movie = $em->getRepository('FilmyBundle:Movies')->find($id);
+        $em = $this->getDoctrine()->getManager();
+        $actor = $em->getRepository('FilmyBundle:Actors')->findAll();
 
-
-        
-
-        return $this->render('FilmyBundle:Movies:'.$moviesdisplay[0]['image'].'.html.twig', array('moviesdisplay' => $moviesdisplay));
+        if (!$movie) {
+            throw $this->createNotFoundException('Unable to find Thread entity.');
+        }
+        return $this->render('FilmyBundle:Movies:movie.html.twig', array(
+            'movies' => $movie,
+            'actors' => $actor
+        ));
         
     }
 
@@ -93,6 +91,23 @@ class DefaultController extends Controller
 
             $form->handleRequest($request);
 
+    }
+
+    public function ReviewsDisplayAction()
+    {
+        $em = $this->getDoctrine()->getManager();
+        $movie = $em->getRepository('FilmyBundle:Movies')->findAll();
+        $em = $this->getDoctrine()->getManager();
+        $review = $em->getRepository('FilmyBundle:Review')->findAll();
+
+        if (!$movie) {
+            throw $this->createNotFoundException('Unable to find Thread entity.');
+        }
+        return $this->render('FilmyBundle:Reviews:reviewsdisplay.html.twig', array(
+            'movies' => $movie,
+            'reviews' => $review
+        ));
+        
     }
 
 

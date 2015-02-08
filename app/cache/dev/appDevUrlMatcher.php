@@ -142,7 +142,7 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
         }
 
         // filmy_moviesdisplay
-        if (0 === strpos($pathinfo, '/Movies') && preg_match('#^/Movies/(?P<moviesdisplay>[^/]++)$#s', $pathinfo, $matches)) {
+        if (0 === strpos($pathinfo, '/Movie') && preg_match('#^/Movie/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
             return $this->mergeDefaults(array_replace($matches, array('_route' => 'filmy_moviesdisplay')), array (  '_controller' => 'FilmyBundle\\Controller\\DefaultController::MoviesDisplayAction',));
         }
 
@@ -184,6 +184,11 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
         // filmy_query
         if ($pathinfo === '/Query') {
             return array (  '_controller' => 'FilmyBundle\\Controller\\DefaultController::QueryAction',  '_route' => 'filmy_query',);
+        }
+
+        // filmy_reviewsdisplay
+        if ($pathinfo === '/ReviewDisplay') {
+            return array (  '_controller' => 'FilmyBundle\\Controller\\DefaultController::ReviewsDisplayAction',  '_route' => 'filmy_reviewsdisplay',);
         }
 
         // student_hello_homepage

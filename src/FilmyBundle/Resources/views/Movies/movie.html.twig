@@ -1,0 +1,52 @@
+{% extends "FilmyBundle::bars.html.twig" %}
+
+
+
+    {% block header %}
+        <h1>{{ movies.title }}</h1>
+
+    {% endblock %}
+
+
+
+    {% block content %}
+        
+      
+   <ul>
+      
+        
+        
+
+
+                <li><img src="{{asset('bundles/filmy/images/')}}{{ movies.image }}.jpg" alt="Filmy" class="img-thumbnail" height="42" width="42">
+                        <br>Tytul:{{ movies.title }} </a>
+                        <br>Opis:{{ movies.description }}
+                        <br>Id_filmu:{{ movies.id }}
+                        <br>Gatunek:{{ movies.genre }}
+                        <br>Cena:{{ movies.price }}
+                        <br>Aktorzy:
+                        {% for actors in actors %}
+                        {% if (actors.idfilm == movies.id) %}
+                        {{ actors.Name }}
+                            {% endif %}
+                            {% endfor %}
+                        
+                            
+                </li>
+                            
+        
+    </ul>
+    
+        
+ 
+        
+ 
+
+    {% endblock %}
+        
+        
+    
+
+
+
+

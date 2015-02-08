@@ -63,13 +63,17 @@ class __TwigTemplate_dc599c01d74d151f809850812df096c773de0a46f5c3dea68daa98ca858
             // line 22
             echo "
 
-                <li><img src=\"";
+                <li><a href=\"";
             // line 24
+            echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("filmy_moviesdisplay", array("id" => $this->getAttribute($context["moviedisplay"], "id", array()))), "html", null, true);
+            echo "\"><img src=\"";
             echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/filmy/images/"), "html", null, true);
             echo twig_escape_filter($this->env, $this->getAttribute($context["moviedisplay"], "image", array()), "html", null, true);
-            echo ".jpg\" alt=\"Filmy\" class=\"img-thumbnail\" height=\"42\" width=\"42\">
-                        <br>Tytul:";
+            echo ".jpg\" alt=\"Filmy\" class=\"img-thumbnail\" height=\"42\" width=\"42\"></a>
+                        <br>Tytul:<a href=\"";
             // line 25
+            echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("filmy_moviesdisplay", array("id" => $this->getAttribute($context["moviedisplay"], "id", array()))), "html", null, true);
+            echo "\">";
             echo twig_escape_filter($this->env, $this->getAttribute($context["moviedisplay"], "title", array()), "html", null, true);
             echo " </a>
                         <br>Opis:";
@@ -88,7 +92,7 @@ class __TwigTemplate_dc599c01d74d151f809850812df096c773de0a46f5c3dea68daa98ca858
             // line 29
             echo twig_escape_filter($this->env, $this->getAttribute($context["moviedisplay"], "price", array()), "html", null, true);
             echo "
-                        
+                        <br>Aktorzy:
                         ";
             // line 31
             $context['_parent'] = (array) $context;
@@ -98,7 +102,7 @@ class __TwigTemplate_dc599c01d74d151f809850812df096c773de0a46f5c3dea68daa98ca858
                 echo "                        ";
                 if (($this->getAttribute($context["actor"], "idfilm", array()) == $this->getAttribute($context["moviedisplay"], "id", array()))) {
                     // line 33
-                    echo "                        <br>Aktor:";
+                    echo "                        ";
                     echo twig_escape_filter($this->env, $this->getAttribute($context["actor"], "Name", array()), "html", null, true);
                     echo "
                             ";
@@ -140,6 +144,6 @@ class __TwigTemplate_dc599c01d74d151f809850812df096c773de0a46f5c3dea68daa98ca858
 
     public function getDebugInfo()
     {
-        return array (  120 => 38,  113 => 36,  107 => 35,  101 => 33,  98 => 32,  94 => 31,  89 => 29,  85 => 28,  81 => 27,  77 => 26,  73 => 25,  68 => 24,  64 => 22,  60 => 21,  57 => 20,  55 => 19,  53 => 18,  48 => 12,  45 => 11,  40 => 6,  37 => 5,  11 => 1,);
+        return array (  124 => 38,  117 => 36,  111 => 35,  105 => 33,  102 => 32,  98 => 31,  93 => 29,  89 => 28,  85 => 27,  81 => 26,  75 => 25,  68 => 24,  64 => 22,  60 => 21,  57 => 20,  55 => 19,  53 => 18,  48 => 12,  45 => 11,  40 => 6,  37 => 5,  11 => 1,);
     }
 }

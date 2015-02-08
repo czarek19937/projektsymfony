@@ -5,7 +5,7 @@ filmy_helloworld:
     path:     /hello
     defaults: { _controller: FilmyBundle:Default:helloworld }
 filmy_moviesdisplay:
-    path:	/Movies/{moviesdisplay}
+    path:	/Movie/{id}
     defaults: { _controller: FilmyBundle:Default:MoviesDisplay }
 filmy_commedy:
     path:	/Types/commedy
@@ -31,3 +31,6 @@ filmy_actorsview:
 filmy_query:
     path:   /Query
     defaults: { _controller: FilmyBundle:Default:Query }
+filmy_reviewsdisplay:
+    path:   /ReviewDisplay
+    defaults: { _controller: FilmyBundle:Default:ReviewsDisplay }

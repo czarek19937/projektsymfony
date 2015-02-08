@@ -21,16 +21,16 @@
         {% for moviedisplay in moviesdisplay %}
 
 
-                <li><img src="{{asset('bundles/filmy/images/')}}{{ moviedisplay.image }}.jpg" alt="Filmy" class="img-thumbnail" height="42" width="42">
-                        <br>Tytul:{{ moviedisplay.title }} </a>
+                <li><a href="{{path('filmy_moviesdisplay', {'id': moviedisplay.id})}}"><img src="{{asset('bundles/filmy/images/')}}{{ moviedisplay.image }}.jpg" alt="Filmy" class="img-thumbnail" height="42" width="42"></a>
+                        <br>Tytul:<a href="{{path('filmy_moviesdisplay', {'id': moviedisplay.id})}}">{{ moviedisplay.title }} </a>
                         <br>Opis:{{ moviedisplay.description }}
                         <br>Id_filmu:{{ moviedisplay.id }}
                         <br>Gatunek:{{ moviedisplay.genre }}
                         <br>Cena:{{ moviedisplay.price }}
-                        
+                        <br>Aktorzy:
                         {% for actor in actors %}
                         {% if (actor.idfilm == moviedisplay.id) %}
-                        <br>Aktor:{{ actor.Name }}
+                        {{ actor.Name }}
                             {% endif %}
                             {% endfor %}
                 </li>
