@@ -19,16 +19,17 @@
         {#<a href="{{path('filmy_moviesdisplay', {'moviesdisplay': ojciecchrzestny})}}">ojciec chrzestny link</a>#}
         
         {% for moviedisplay in moviesdisplay %}
-                <li><img src="{{asset('bundles/filmy/images/')}}{{ moviesdisplay.image }}.jpg" alt="Filmy" class="img-thumbnail" height="42" width="42">
+
+
+                <li><img src="{{asset('bundles/filmy/images/')}}{{ moviedisplay.image }}.jpg" alt="Filmy" class="img-thumbnail" height="42" width="42">
                         <br>Tytul:{{ moviedisplay.title }} </a>
                         <br>Opis:{{ moviedisplay.description }}
                         <br>Id_filmu:{{ moviedisplay.id }}
                         <br>Gatunek:{{ moviedisplay.genre }}
                         <br>Cena:{{ moviedisplay.price }}
-                        <br>Aktor:{{ moviedisplay.genre }}
-                        {# ttuaj jesdziesz petla #}
+                        
                         {% for actor in actors %}
-                        {% if (actor.Id_ilm == moviesdisplay.id) %}
+                        {% if (actor.idfilm == moviedisplay.id) %}
                         <br>Aktor:{{ actor.Name }}
                             {% endif %}
                             {% endfor %}

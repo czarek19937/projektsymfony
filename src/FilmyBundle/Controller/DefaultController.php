@@ -29,11 +29,11 @@ class DefaultController extends Controller
         
 
         $movies = $this->getDoctrine()
-            ->getRepository('FilmyBundle:Movies');
+            ->getRepository('FilmyBundle:Movies')->findAll();;
             //pobierasz wszystkich aktorow
         $actors = $this->getDoctrine()
-            ->getRepository('FilmyBundle:Actors');
-
+            ->getRepository('FilmyBundle:Actors')->findAll();;
+            
         return $this->render('FilmyBundle:Default:query.html.twig', array(
         'moviesdisplay' => $movies,
         'actors' => $actors
