@@ -6,7 +6,7 @@ filmy_helloworld:
     defaults: { _controller: FilmyBundle:Default:helloworld }
 filmy_moviesdisplay:
     path:	/Movies/{moviesdisplay}
-    defaults: { _controller: FilmyBundle:Default:Movies }
+    defaults: { _controller: FilmyBundle:Default:MoviesDisplay }
 filmy_commedy:
     path:	/Types/commedy
     defaults: { _controller: FilmyBundle:Default:Commedy }

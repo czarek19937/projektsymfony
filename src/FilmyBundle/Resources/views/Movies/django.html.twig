@@ -3,21 +3,22 @@
 
 
     {% block header %}
-        <h1>{{attribute(moviesdisplay, 2).title}}</h1>
+        <h1>Django</h1>
     {% endblock %}
 
 
 
     {% block content %}
-        
-      
-   <ul>        
-                <li><img src="{{asset('bundles/filmy/images/')}}{{attribute(moviesdisplay, 2).image}}.jpg" alt="Filmy" class="img-thumbnail" height="42" width="42">
+        {#{{attribute(moviesdisplay, 2).title}}
+        <img src="{{asset('bundles/filmy/images/')}}{{attribute(moviesdisplay, 2).image}}.jpg" alt="Filmy" class="img-thumbnail" height="42" width="42">
                         <br>Tytul:{{attribute(moviesdisplay, 2).title}}
                         <br>Opis:{{attribute(moviesdisplay, 2).description}}
                         <br>Id_filmu:{{attribute(moviesdisplay, 2).id}}
                         <br>Gatunek:{{attribute(moviesdisplay, 2).genre}}
-                        <br>Cena:{{attribute(moviesdisplay, 2).price}}
+                        <br>Cena:{{attribute(moviesdisplay, 2).price}}#}
+      
+   <ul>        
+                <li>
                 </li>
         
         

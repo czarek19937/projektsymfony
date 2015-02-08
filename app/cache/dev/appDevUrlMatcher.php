@@ -143,7 +143,7 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
 
         // filmy_moviesdisplay
         if (0 === strpos($pathinfo, '/Movies') && preg_match('#^/Movies/(?P<moviesdisplay>[^/]++)$#s', $pathinfo, $matches)) {
-            return $this->mergeDefaults(array_replace($matches, array('_route' => 'filmy_moviesdisplay')), array (  '_controller' => 'FilmyBundle\\Controller\\DefaultController::MoviesAction',));
+            return $this->mergeDefaults(array_replace($matches, array('_route' => 'filmy_moviesdisplay')), array (  '_controller' => 'FilmyBundle\\Controller\\DefaultController::MoviesDisplayAction',));
         }
 
         // filmy_commedy

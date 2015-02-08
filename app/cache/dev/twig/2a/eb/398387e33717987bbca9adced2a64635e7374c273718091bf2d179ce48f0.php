@@ -37,7 +37,7 @@ class __TwigTemplate_2aeb398387e33717987bbca9adced2a64635e7374c273718091bf2d179c
     public function block_header($context, array $blocks = array())
     {
         // line 6
-        echo "        <h1>MoviesView</h1>
+        echo "        <h1>ActorsView</h1>
     ";
     }
 
