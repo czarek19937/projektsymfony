@@ -33,10 +33,58 @@
                         {{ actor.Name }}
                             {% endif %}
                             {% endfor %}
-                </li>
+                            {% set i = 0 %}
+                        {% for review in reviews %}
+                                {% if (review.idfilm == moviedisplay.id) %}
+                                {% set i = i + 1 %}
+                            {% endif %}
                             {% endfor %}
-        
-    </ul>
+                            {{i}}
+                            {% endfor %} 
+                </li>       
+             
+
+                            
+
+
+
+                           <br><br> Recenzje:
+                           
+                                {% for moviedisplay in moviesdisplay %}
+
+
+                <li><a href="{{path('filmy_moviesdisplay', {'id': moviedisplay.id})}}"><img src="{{asset('bundles/filmy/images/')}}{{ moviedisplay.image }}.jpg" alt="Filmy" class="img-thumbnail" height="42" width="42"></a>
+                        <br>Tytul:<a href="{{path('filmy_moviesdisplay', {'id': moviedisplay.id})}}">{{ moviedisplay.title }} </a>
+                        
+                            {% set i = 0 %}
+                        {% for review in reviews %}
+                                {% if (review.idfilm == moviedisplay.id) %}
+                                {% set i = i + 1 %}
+                            {% endif %}
+                            {% endfor %}
+                            Liczba recenzji:{{i}} 
+                       
+
+
+                            {% endfor %}
+                            
+        <br><br> Gatunki:
+                           
+                                {% for moviedisplay in moviesdisplay %}
+
+
+                            {% if moviedisplay.genre|default %}
+                        <br>Gatunek:{{ moviedisplay.genre }}
+                            {% else %}
+
+                            {% endif %}
+                        
+                                                    
+                       
+
+
+                            {% endfor %}
+    
     
         
  

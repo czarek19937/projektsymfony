@@ -33,10 +33,13 @@ class DefaultController extends Controller
             //pobierasz wszystkich aktorow
         $actors = $this->getDoctrine()
             ->getRepository('FilmyBundle:Actors')->findAll();
+        $review = $this->getDoctrine()
+            ->getRepository('FilmyBundle:Review')->findAll();
 
         return $this->render('FilmyBundle:Default:query.html.twig', array(
         'moviesdisplay' => $movies,
-        'actors' => $actors
+        'actors' => $actors,
+        'reviews' => $review
 
 ));
         //Potem w TWIGU przy wyswietlaniu filmu, musisz wstawić do pętli wszystkich aktorów i wyświetlić tylko tych co mają ID filmu takie same co wyświetlany film
