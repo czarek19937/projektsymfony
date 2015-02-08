@@ -26,35 +26,21 @@ class DefaultController extends Controller
 
     public function QueryAction()
     {
-        /*$repository = $this->getDoctrine()
-            ->getRepository('FilmyBundle:Movies');
-
-        $query = $repository->createQueryBuilder('m')//jedna opcja zapytan
-            ->select('m.title')
-            ->getQuery();
-
-
-        $movies = $query->getResult();
-        'movies' => $movies, ->do tablicy return
-        */
-        //$em = $this->getDoctrine()->getEntityManager();
-        //$qb = $em->createQueryBuilder();
-        //$em = $qb->getEntityManager();
-        //$query = $em->createQuery( 'SELECT a FROM FilmyBundle:Movies a' );//druga opcja zapytan
-        //$moviesdisplay = $query->getArrayResult(); // array of User objects
-        //echo $users[1]['title'];
-        //echo $movies[0]['title'];
-        //echo ($moviesdisplay[0]['image']);
-        $em = $this->getDoctrine()->getManager();
-        $result=$em->createQueryBuilder();
-        $dql=$result->select('m')
-        ->from('FilmyBundle:Movies','m')
-        ->getQuery();
-
-        $moviesdisplay = $dql->getArrayResult();
-       
         
-        return $this->render('FilmyBundle:Default:query.html.twig', array('moviesdisplay' => $moviesdisplay));
+
+        $movies = $this->getDoctrine()
+            ->getRepository('FilmyBundle:Movies');
+            //pobierasz wszystkich aktorow
+        $actors = $this->getDoctrine()
+            ->getRepository('FilmyBundle:Actors');
+
+        return $this->render('FilmyBundle:Default:query.html.twig', array(
+        'moviesdisplay' => $movies,
+        'actors' => $actors
+
+));
+        //Potem w TWIGU przy wyswietlaniu filmu, musisz wstawić do pętli wszystkich aktorów i wyświetlić tylko tych co mają ID filmu takie same co wyświetlany film
+    
         
     }
 

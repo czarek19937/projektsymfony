@@ -18,16 +18,22 @@
         {# <a href="http://v-ie.uek.krakow.pl/~s173152/app_dev.php/Movies/{{ moviesdisplay.image }}"></a> #}
         {#<a href="{{path('filmy_moviesdisplay', {'moviesdisplay': ojciecchrzestny})}}">ojciec chrzestny link</a>#}
         
-        {% for moviesdisplay in moviesdisplay %}
+        {% for moviedisplay in moviesdisplay %}
                 <li><img src="{{asset('bundles/filmy/images/')}}{{ moviesdisplay.image }}.jpg" alt="Filmy" class="img-thumbnail" height="42" width="42">
-                        <br>Tytul:{{ moviesdisplay.title }} </a>
-                        <br>Opis:{{ moviesdisplay.description }}
-                        <br>Id_filmu:{{ moviesdisplay.id }}
-                        <br>Gatunek:{{ moviesdisplay.genre }}
-                        <br>Cena:{{ moviesdisplay.price }}
-                        <br>Aktor:{{ moviesdisplay.genre }}
+                        <br>Tytul:{{ moviedisplay.title }} </a>
+                        <br>Opis:{{ moviedisplay.description }}
+                        <br>Id_filmu:{{ moviedisplay.id }}
+                        <br>Gatunek:{{ moviedisplay.genre }}
+                        <br>Cena:{{ moviedisplay.price }}
+                        <br>Aktor:{{ moviedisplay.genre }}
+                        {# ttuaj jesdziesz petla #}
+                        {% for actor in actors %}
+                        {% if (actor.Id_ilm == moviesdisplay.id) %}
+                        <br>Aktor:{{ actor.Name }}
+                            {% endif %}
+                            {% endfor %}
                 </li>
-        {% endfor %}
+                            {% endfor %}
         
     </ul>
     
