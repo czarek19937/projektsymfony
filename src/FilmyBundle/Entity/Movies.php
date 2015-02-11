@@ -11,6 +11,8 @@ class Movies
 {
     /**
      * @var integer
+     * @ManyToMany(targetEntity="Actors", inversedBy="users")
+     * @JoinTable(name="users_groups")
      */
     private $id;
 

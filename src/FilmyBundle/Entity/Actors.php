@@ -21,6 +21,7 @@ class Actors
 
     /**
      * @var integer
+     * @ManyToMany(targetEntity="User", mappedBy="groups")
      */
     private $idFilm;
 
