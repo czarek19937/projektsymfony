@@ -11,33 +11,41 @@ class Movies
 {
     /**
      * @var integer
-     * @ManyToMany(targetEntity="Actors", inversedBy="users")
-     * @JoinTable(name="users_groups")
+     * @ManyToMany(targetEntity="FilyBundle\Entity\Actors", inversedBy="Id_film")
+     * @JoinTable(name="Actors")
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
 
     /**
      * @var string
+     * @ORM\Column(name="title", type="string", length=255)
      */
     private $title;
 
     /**
      * @var string
+     * @ORM\Column(name="description", type="string", length=255)
      */
     private $description;
 
     /**
      * @var string
+     * @ORM\Column(name="genre", type="string", length=255)
      */
     private $genre;
 
     /**
      * @var string
+     * @ORM\Column(name="price", type="string", length=255)
      */
     private $price;
 
     /**
      * @var string
+     * @ORM\Column(name="image", type="string", length=255)
      */
     private $image;
 

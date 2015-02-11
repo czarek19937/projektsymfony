@@ -1,32 +1,22 @@
 {% extends "FilmyBundle::bars.html.twig" %}
 
-
-
-    {% block header %}
-        <h1>MoviesView</h1>
-    {% endblock %}
+	{% block header %}
+		<h1>MoviesView</h1>
+	{% endblock %}
 
 
 
-    {% block content %}
-        
-       <ul>
-        {% for moviesview in moviesview %}
-                <li> <img src="{{asset('bundles/filmy/images/')}}{{ moviesview.image }}.jpg" alt="Filmy" class="img-thumbnail" height="42" width="42"><br>Tytuł:{{ moviesview.title|upper }}  <br>Opis:{{ moviesview.description }} <br>Id_filmu:{{ moviesview.id }} <br>Gatunek:{{ moviesview.genre }} <br>Cena:{{ moviesview.price }} </li>
-        {% endfor %}
-    </ul>
-        
+	{% block content %}
+		
+		{% for movie in movies %}
+		<br>{{ movie.title }}
+		<br>{{ movie.name }}
+		{% endfor %}
+		
     
         
  
-        
+    	
  
 
-    {% endblock %}
-        
-        
-    
-
-
-
-
+	{% endblock %}

@@ -4,6 +4,7 @@ namespace FilmyBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
+use Doctrine\Common\Collections\ArrayCollection;
 use FilmyBundle\Entity\Review;
 use FilmyBundle\Form\ReviewType;
 use FilmyBundle\Entity\Movies;
@@ -13,6 +14,10 @@ use FilmyBundle\Form\ActorsType;
 use FilmyBundle\Entity\Orders;
 use FilmyBundle\Form\OrdersType;
 use Symfony\Component\HttpFoundation\Response;
+use Doctrine\ORM\Query;
+use Doctrine\ORM\Query\Lexer;
+use Doctrine\ORM\Query\ResultSetMapping;
+
 
 
 class DefaultController extends Controller
@@ -140,14 +145,38 @@ class DefaultController extends Controller
     public function MoviesViewAction(Request $request)
     {
         $em = $this->getDoctrine()->getManager();
-        $repository = $em->getRepository("FilmyBundle:Movies");
+        /*$repository = $em->getRepository("FilmyBundle:Movies");
+        $em = $this->getDoctrine()->getManager();
+        $actor = $em->getRepository('FilmyBundle:Actors')->findAll();
 
-        $moviesview = $repository->findAll();
+        $moviesview = $repository->findAll();*/
 
-        return $this->render(
+        $query = $em->createQuery(
+                "SELECT DISTINCT m.title, GROUP_CONCAT(a.name) 
+                FROM FilmyBundle:Movies m INNER Join FilmyBundle:Actors a 
+                WHERE a.idFilm=1
+                and m.id=1
+                "
+        );
+
+        $movies = $query->getArrayResult();
+        $sql=$query->getSql();
+        $parameters=$query->getParameters();
+        echo $sql;
+        /*echo $movies[0]['title'];*/
+        echo "<pre>";
+        print_r($movies);
+        echo "</pre>";
+        return $this->render('FilmyBundle:Default:moviesview.html.twig', array(
+            'movies' => $movies
+            ));
+    }
+
+
+       /* return $this->render(
                             'FilmyBundle:Default:moviesview.html.twig', array( 'moviesview' => $moviesview));
         
-    }
+    }*/
 
 
 
