@@ -24,6 +24,7 @@ class DefaultController extends Controller
 {
     public function indexAction()
     {
+        
         $movies = $this->getDoctrine()
             ->getRepository('FilmyBundle:Movies')->findBy(array(), array('id' => 'asc'));
             //pobierasz wszystkich aktorow
@@ -186,7 +187,9 @@ class DefaultController extends Controller
             $em = $this->getDoctrine()->getManager();
             $em->persist($review);
             $em->flush();
-            return $this->redirect($this->generateUrl('filmy_review'));
+            
+            return $this->redirect($this->generateUrl('filmy_homepage'));
+            
         }
 
             return $this->render('FilmyBundle:Default:review.html.twig', array('form'=>$form->createView()));

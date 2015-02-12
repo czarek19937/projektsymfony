@@ -44,7 +44,7 @@ class __TwigTemplate_044d3d3600c573c0545ab8285c04a16b7b9988a5221cb508fc28e6b2310
 ";
         }
         // line 9
-        echo "
+        echo "<a href=\"http://v-ie.uek.krakow.pl/~s173152/app_dev.php/register\">Zarejestruj się</a>
 <form action=\"";
         // line 10
         echo $this->env->getExtension('routing')->getPath("fos_user_security_check");

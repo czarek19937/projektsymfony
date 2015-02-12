@@ -128,15 +128,27 @@ class __TwigTemplate_a0a04e85939f2e91aa32a2e2d064de00bdba4637d82b4065d3852171339
 
     </ul>
 <a href=\"http://v-ie.uek.krakow.pl/~s173152/app_dev.php/\">Wróc do strony poprzedniej</a><br>
-<a href=\"http://v-ie.uek.krakow.pl/~s173152/app_dev.php/\"><button type=\"button\" class=\"btn btn-primary\">Wypożycz - przycisk</button></a><br>
 ";
-        // line 46
+        // line 45
         if ($this->getAttribute($this->getAttribute((isset($context["app"]) ? $context["app"] : null), "user", array(), "any", false, true), "username", array(), "any", true, true)) {
-            // line 47
-            echo "<a href=\"http://v-ie.uek.krakow.pl/~s173152/app_dev.php/Reviews\"><button type=\"button\" class=\"btn btn-primary\">Dodaj recenzje - przycisk</button></a>
+            // line 46
+            echo "<a href=\"http://v-ie.uek.krakow.pl/~s173152/app_dev.php/\"><button type=\"button\" class=\"btn btn-primary\">
+";
+        } else {
+            // line 48
+            echo "<a href=\"http://v-ie.uek.krakow.pl/~s173152/app_dev.php/login\"><button type=\"button\" class=\"btn btn-primary\">
 ";
         }
-        // line 49
+        // line 50
+        echo "Wypożycz - przycisk</button></a><br>
+";
+        // line 51
+        if ($this->getAttribute($this->getAttribute((isset($context["app"]) ? $context["app"] : null), "user", array(), "any", false, true), "username", array(), "any", true, true)) {
+            // line 52
+            echo "<a href=\"http://v-ie.uek.krakow.pl/~s173152/app_dev.php/Review\"><button type=\"button\" class=\"btn btn-primary\">Dodaj recenzje - przycisk</button></a>
+";
+        }
+        // line 54
         echo "        
  
         
@@ -157,6 +169,6 @@ class __TwigTemplate_a0a04e85939f2e91aa32a2e2d064de00bdba4637d82b4065d3852171339
 
     public function getDebugInfo()
     {
-        return array (  140 => 49,  136 => 47,  134 => 46,  124 => 38,  118 => 37,  112 => 35,  109 => 34,  105 => 33,  102 => 32,  96 => 31,  90 => 29,  87 => 28,  83 => 27,  78 => 25,  74 => 24,  70 => 23,  66 => 22,  61 => 21,  51 => 13,  48 => 12,  40 => 6,  37 => 5,  11 => 1,);
+        return array (  152 => 54,  148 => 52,  146 => 51,  143 => 50,  139 => 48,  135 => 46,  133 => 45,  124 => 38,  118 => 37,  112 => 35,  109 => 34,  105 => 33,  102 => 32,  96 => 31,  90 => 29,  87 => 28,  83 => 27,  78 => 25,  74 => 24,  70 => 23,  66 => 22,  61 => 21,  51 => 13,  48 => 12,  40 => 6,  37 => 5,  11 => 1,);
     }
 }

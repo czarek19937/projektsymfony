@@ -17,7 +17,6 @@ class MoviesType extends AbstractType
         $builder
             ->add('title')
             ->add('description')
-            ->add('genre')
             ->add('price')
             ->add('image')
         ;

@@ -43,11 +43,7 @@ class __TwigTemplate_7739593edf49318bdaa91fc1afedaeab237c43a3e673bed428e44e21f92
             ";
         } else {
             // line 14
-            echo "                <a href=\"";
-            echo $this->env->getExtension('routing')->getPath("fos_user_security_login");
-            echo "\">";
-            echo twig_escape_filter($this->env, $this->env->getExtension('translator')->trans("layout.login", array(), "FOSUserBundle"), "html", null, true);
-            echo "</a>
+            echo "                
             ";
         }
         // line 16
@@ -115,6 +111,6 @@ class __TwigTemplate_7739593edf49318bdaa91fc1afedaeab237c43a3e673bed428e44e21f92
 
     public function getDebugInfo()
     {
-        return array (  103 => 28,  100 => 27,  93 => 29,  91 => 27,  87 => 25,  81 => 24,  72 => 21,  67 => 20,  62 => 19,  58 => 18,  54 => 16,  46 => 14,  40 => 11,  36 => 10,  31 => 9,  29 => 8,  20 => 1,);
+        return array (  99 => 28,  96 => 27,  89 => 29,  87 => 27,  83 => 25,  77 => 24,  68 => 21,  63 => 20,  58 => 19,  54 => 18,  50 => 16,  46 => 14,  40 => 11,  36 => 10,  31 => 9,  29 => 8,  20 => 1,);
     }
 }

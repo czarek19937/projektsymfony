@@ -5,7 +5,8 @@ namespace FilmyBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Orders
+ * @ORM\Entity(repositoryClass="FilmyBundle\Entity\OrdersRepository")
+ * @ORM\Table(name="Orders")
  */
 class Orders
 {
