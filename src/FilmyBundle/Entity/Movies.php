@@ -6,6 +6,7 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
   * @ORM\Entity(repositoryClass="FilmyBundle\Entity\MoviesRepository")
+  * @ORM\Table(name="Movies")
   */
 class Movies
 {
@@ -13,6 +14,10 @@ class Movies
      * @var integer
      * @ManyToMany(targetEntity="FilyBundle\Entity\Actors", inversedBy="Id_film")
      * @JoinTable(name="Actors")
+     * @ManyToMany(targetEntity="FilyBundle\Entity\Genres", inversedBy="Id_film")
+     * @JoinTable(name="Genres")
+     * @ManyToMany(targetEntity="FilyBundle\Entity\Review", inversedBy="Id_film")
+     * @JoinTable(name="Review")
      * @ORM\Column(name="id", type="integer")
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
@@ -29,13 +34,7 @@ class Movies
      * @var string
      * @ORM\Column(name="description", type="string", length=255)
      */
-    private $description;
-
-    /**
-     * @var string
-     * @ORM\Column(name="genre", type="string", length=255)
-     */
-    private $genre;
+    private $description; 
 
     /**
      * @var string
@@ -105,30 +104,7 @@ class Movies
     {
         return $this->description;
     }
-
-    /**
-     * Set genre
-     *
-     * @param string $genre
-     * @return Movies
-     */
-    public function setGenre($genre)
-    {
-        $this->genre = $genre;
-
-        return $this;
-    }
-
-    /**
-     * Get genre
-     *
-     * @return string 
-     */
-    public function getGenre()
-    {
-        return $this->genre;
-    }
-
+    
     /**
      * Set price
      *

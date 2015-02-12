@@ -6,26 +6,35 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * Review
+ * @ORM\Table(name="Review")
+ * @ORM\Entity(repositoryClass="FilmyBundle\Entity\Repository\ReviewRepository")
  */
 class Review
 {
     /**
      * @var integer
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
 
     /**
      * @var integer
+     * @ORM\Column(name="Id_film", type="integer")
+     * @ManyToMany(targetEntity="FilyBundle\Entity\Movies", mappedBy="movies")
      */
     private $idFilm;
 
     /**
      * @var string
+     * @ORM\Column(name="title", type="string", length=255)
      */
     private $title;
 
     /**
      * @var string
+     * @ORM\Column(name="text", type="string", length=255)
      */
     private $text;
 

@@ -17,10 +17,6 @@ FilmyBundle\Entity\Movies:
             type: string
             length: 255
             column: Description
-        genre:
-            type: string
-            length: 255
-            column: Genre
         price:
             type: string
             length: 255

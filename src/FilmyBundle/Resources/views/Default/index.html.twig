@@ -7,11 +7,78 @@
 
 {% block content %}
 
-<ol>
-Lista gatunków z których spośród których można wybierać filmy
-<li><a href="{{path('filmy_commedy')}}">Komedia</a>
-<li>
-<li>
-</ol>
+<h3>Dostępne filmy:</h3>
+   <ul>
+                
+        {% for moviedisplay in moviesdisplay %}
+
+
+                <li><a href="{{path('filmy_moviesdisplay', {'id': moviedisplay.id})}}"><img src="{{asset('bundles/filmy/images/')}}{{ moviedisplay.image }}.jpg" alt="Filmy" class="img-thumbnail" height="42" width="42"></a>
+                        <br>Tytul:<a href="{{path('filmy_moviesdisplay', {'id': moviedisplay.id})}}">{{ moviedisplay.title }} </a>
+                        <br>Opis:{{ moviedisplay.description }}
+                        <br>Id_filmu:{{ moviedisplay.id }}
+                        <br>Cena:{{ moviedisplay.price }}
+                        
+                        <br>Aktorzy:
+                        {% for actor in actors %}
+                        {% if (actor.idfilm == moviedisplay.id) %}
+                        {{ actor.Name }}
+                            {% endif %}
+                            {% endfor %}
+
+
+                        <br>Gatunek:
+                        {% for genre in genres %}
+                        {% if (genre.idfilm == moviedisplay.id) %}
+                        {{ genre.genre }}
+                            {% endif %}
+                            {% endfor %}
+
+
+                        {% set i = 0 %}
+                        {% for review in reviews %}
+                            {% if (review.idfilm == moviedisplay.id) %}
+                                {% set i = i + 1 %}
+                            {% endif %}
+                        {% endfor %}
+                            
+            {% endfor %}
+            <br><br> 
+                </li>       
+ <h3>Popularne fIlmy:</h3>               
+
+<h3>Filmy wg. ilości recenzji</h3>                            
+                {% for opinion in opinion %}
+            
+            <a href="{{path('filmy_moviesdisplay', {'id': opinion.0.id})}}"><img src="{{asset('bundles/filmy/images/')}}{{ opinion.0.image }}.jpg" alt="Filmy" class="img-thumbnail" height="42" width="42"></a>
+            
+            <br><a href="{{path('filmy_moviesdisplay', {'id': opinion.0.id})}}">{{opinion.0.title}}</a>
+            <br>Liczba recenzji:{{ opinion.c}}<br>
+            
+            
+    
+    
+    {%endfor%}
+
+
+                    
+<br><br><h3>Filmy przyporządkowane do gatunków</h3>                            
+         
+                           
+            {% for kind in kind%}
+            
+            <br>{{kind.genre}}<br>
+            {%for variety in variety%}
+            {%if kind.genre==variety.genre%}
+            <a href="{{path('filmy_moviesdisplay', {'id': variety.id})}}"><img src="{{asset('bundles/filmy/images/')}}{{ variety.image }}.jpg" alt="Filmy" class="img-thumbnail" height="42" width="42"></a>
+            <a href="{{path('filmy_moviesdisplay', {'id': variety.id})}}">{{ variety.title }}</a>
+            {%endif%}
+            {%endfor%}
+           
+            
+            
+    
+    
+    {%endfor%}      
 
 {% endblock %}

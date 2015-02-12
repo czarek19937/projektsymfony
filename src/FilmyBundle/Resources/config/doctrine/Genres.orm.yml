@@ -1,0 +1,19 @@
+FilmyBundle\Entity\Genres:
+    type: entity
+    table: null
+    repositoryClass: FilmyBundle\Entity\GenresRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        genre:
+            type: string
+            length: 255
+            column: Genre
+        idFilm:
+            type: integer
+            column: Id_film
+    lifecycleCallbacks: {  }

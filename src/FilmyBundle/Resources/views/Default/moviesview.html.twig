@@ -8,10 +8,35 @@
 
 	{% block content %}
 		
-		{% for movie in movies %}
-		<br>{{ movie.title }}
-		<br>{{ movie.name }}
-		{% endfor %}
+		
+
+		
+    		{{ dump(movies) }}
+    		{{ dump(actors) }}
+    		{{ dump(reviews) }}
+    		{{ dump(test) }}
+ 
+    
+    
+   
+    
+{% for test in test%}
+            
+            <br>{{test.genre}}
+            {%for gat in gat%}
+            {%if test.genre==gat.genre%}
+            <br>{{ gat.title }}
+            {%endif%}
+            {%endfor%}
+           
+            
+            
+    
+    
+    {%endfor%}			
+			
+
+		
 		
     
         

@@ -22,21 +22,30 @@
                         <br>Tytul:{{ movies.title }} </a>
                         <br>Opis:{{ movies.description }}
                         <br>Id_filmu:{{ movies.id }}
-                        <br>Gatunek:{{ movies.genre }}
                         <br>Cena:{{ movies.price }}
                         <br>Aktorzy:
                         {% for actors in actors %}
-                        {% if (actors.idfilm == movies.id) %}
-                        {{ actors.Name }}
+                            {% if (actors.idfilm == movies.id) %}
+                                {{ actors.Name }}
+                            {% endif %}
+                        {% endfor %}
+                        <br>Gatunek:
+                        {% for genre in genres %}
+                        {% if (genre.idfilm == movies.id) %}
+                        {{ genre.genre }}
                             {% endif %}
                             {% endfor %}
                         
                             
                 </li>
                             
-        
+
     </ul>
-    
+<a href="http://v-ie.uek.krakow.pl/~s173152/app_dev.php/">Wróc do strony poprzedniej</a><br>
+<a href="http://v-ie.uek.krakow.pl/~s173152/app_dev.php/"><button type="button" class="btn btn-primary">Wypożycz - przycisk</button></a><br>
+{% if app.user.username is defined %}
+<a href="http://v-ie.uek.krakow.pl/~s173152/app_dev.php/Reviews"><button type="button" class="btn btn-primary">Dodaj recenzje - przycisk</button></a>
+{%endif%}
         
  
         

@@ -6,6 +6,7 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * Actors
+ * @ORM\Table(name="Actors")
  */
 class Actors
 {

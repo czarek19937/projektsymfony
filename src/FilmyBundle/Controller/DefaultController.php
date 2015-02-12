@@ -24,7 +24,59 @@ class DefaultController extends Controller
 {
     public function indexAction()
     {
-        return $this->render('FilmyBundle:Default:index.html.twig', array());
+        $movies = $this->getDoctrine()
+            ->getRepository('FilmyBundle:Movies')->findBy(array(), array('id' => 'asc'));
+            //pobierasz wszystkich aktorow
+        $actors = $this->getDoctrine()
+            ->getRepository('FilmyBundle:Actors')->findAll();
+        $review = $this->getDoctrine()->getEntityManager()
+            ->getRepository('FilmyBundle:Review')->findAll();
+        $genres = $this->getDoctrine()
+            ->getRepository('FilmyBundle:Genres')->findAll();
+
+
+        $em= $this->getDoctrine()->getEntityManager();
+        $query = $em->createQuery(
+                "SELECT m, COUNT(r.idFilm) as c
+                FROM FilmyBundle:Review r
+                INNER Join FilmyBundle:Movies m WITH r.idFilm=m.id
+                Group by r.idFilm
+                Order by c desc
+                ");
+        $opinion = $query->getArrayResult();
+
+        $query = $em->createQuery(
+                "SELECT g.genre
+                FROM FilmyBundle:Genres g
+                INNER Join FilmyBundle:Movies m WITH g.idFilm=m.id
+                Group by g.genre
+                
+                ");
+
+
+        $kind = $query->getArrayResult();
+
+        $query = $em->createQuery(
+                "SELECT g.genre, m.title, m.id, m.image
+                FROM FilmyBundle:Genres g
+                INNER Join FilmyBundle:Movies m WITH g.idFilm=m.id
+                
+                
+                ");
+        $variety = $query->getArrayResult();
+        
+
+
+        return $this->render('FilmyBundle:Default:index.html.twig', array(
+        'moviesdisplay' => $movies,
+        'actors' => $actors,
+        'reviews' => $review,
+        'genres' => $genres,
+        'opinion' => $opinion,
+        'kind' => $kind,
+        'variety' => $variety
+
+));
     }
 
 
@@ -34,20 +86,59 @@ class DefaultController extends Controller
         
 
         $movies = $this->getDoctrine()
-            ->getRepository('FilmyBundle:Movies')->findAll();
+            ->getRepository('FilmyBundle:Movies')->findBy(array(), array('id' => 'asc'));
             //pobierasz wszystkich aktorow
         $actors = $this->getDoctrine()
             ->getRepository('FilmyBundle:Actors')->findAll();
-        $review = $this->getDoctrine()
+        $review = $this->getDoctrine()->getEntityManager()
             ->getRepository('FilmyBundle:Review')->findAll();
+        $genres = $this->getDoctrine()
+            ->getRepository('FilmyBundle:Genres')->findAll();
+
+
+        $em= $this->getDoctrine()->getEntityManager();
+        $query = $em->createQuery(
+                "SELECT m, COUNT(r.idFilm) as c
+                FROM FilmyBundle:Review r
+                INNER Join FilmyBundle:Movies m WITH r.idFilm=m.id
+                Group by r.idFilm
+                Order by c desc
+                ");
+        $opinion = $query->getArrayResult();
+
+        $query = $em->createQuery(
+                "SELECT g.genre
+                FROM FilmyBundle:Genres g
+                INNER Join FilmyBundle:Movies m WITH g.idFilm=m.id
+                Group by g.genre
+                
+                ");
+
+
+        $kind = $query->getArrayResult();
+
+        $query = $em->createQuery(
+                "SELECT g.genre, m.title, m.id, m.image
+                FROM FilmyBundle:Genres g
+                INNER Join FilmyBundle:Movies m WITH g.idFilm=m.id
+                
+                
+                ");
+        $variety = $query->getArrayResult();
+        
+
 
         return $this->render('FilmyBundle:Default:query.html.twig', array(
         'moviesdisplay' => $movies,
         'actors' => $actors,
-        'reviews' => $review
+        'reviews' => $review,
+        'genres' => $genres,
+        'opinion' => $opinion,
+        'kind' => $kind,
+        'variety' => $variety
 
 ));
-        //Potem w TWIGU przy wyswietlaniu filmu, musisz wstawić do pętli wszystkich aktorów i wyświetlić tylko tych co mają ID filmu takie same co wyświetlany film
+        
     
         
     }
@@ -58,13 +149,16 @@ class DefaultController extends Controller
         $movie = $em->getRepository('FilmyBundle:Movies')->find($id);
         $em = $this->getDoctrine()->getManager();
         $actor = $em->getRepository('FilmyBundle:Actors')->findAll();
+        $genres = $this->getDoctrine()
+            ->getRepository('FilmyBundle:Genres')->findAll();
 
         if (!$movie) {
             throw $this->createNotFoundException('Unable to find Thread entity.');
         }
         return $this->render('FilmyBundle:Movies:movie.html.twig', array(
             'movies' => $movie,
-            'actors' => $actor
+            'actors' => $actor,
+            'genres' => $genres
         ));
         
     }
@@ -144,15 +238,81 @@ class DefaultController extends Controller
 
     public function MoviesViewAction(Request $request)
     {
-        $em = $this->getDoctrine()->getManager();
-        /*$repository = $em->getRepository("FilmyBundle:Movies");
+        /*$em = $this->getDoctrine()->getManager();
+        $repository = $em->getRepository("FilmyBundle:Movies");
         $em = $this->getDoctrine()->getManager();
         $actor = $em->getRepository('FilmyBundle:Actors')->findAll();
-
+    
         $moviesview = $repository->findAll();*/
+       $movies = $this->getDoctrine()
+            ->getRepository('FilmyBundle:Movies')->findBy(array(), array('id' => 'asc'));
+            //pobierasz wszystkich aktorow
+        $actors = $this->getDoctrine()
+            ->getRepository('FilmyBundle:Actors')->findAll();
+        $review = $this->getDoctrine()->getEntityManager()
+            ->getRepository('FilmyBundle:Review')->findAll(array(), array('idFilm'=>'asc'));
+        $genres = $this->getDoctrine()
+            ->getRepository('FilmyBundle:Genres')->findAll();
+        
+
+        $em= $this->getDoctrine()->getEntityManager();
+        
+        
+            
+        
+            
+        
+        $query = $em->createQuery(
+                "SELECT g.genre
+                FROM FilmyBundle:Genres g
+                INNER Join FilmyBundle:Movies m WITH g.idFilm=m.id
+                Group by g.genre
+                
+                ");
+
+
+        $test = $query->getArrayResult();
 
         $query = $em->createQuery(
-                "SELECT DISTINCT m.title, GROUP_CONCAT(a.name) 
+                "SELECT g.genre, m.title, m.id
+                FROM FilmyBundle:Genres g
+                INNER Join FilmyBundle:Movies m WITH g.idFilm=m.id
+                
+                
+                ");
+        $gat = $query->getArrayResult();
+        $sql=$query->getSql();
+        $parameters=$query->getParameters();
+        echo $sql;
+        /*echo $movies[0]['title'];*/
+        echo "<pre>";
+        print_r($gat);
+        echo "</pre>";
+
+        
+    
+        
+
+        return $this->render('FilmyBundle:Default:moviesview.html.twig', array(
+        'movies' => $movies,
+        'actors' => $actors,
+        'reviews' => $review,
+        'genres' => $genres,
+        'test' => $test,
+        'gat' => $gat
+
+));
+
+/*
+        $movies = $this->getDoctrine()
+            ->getRepository('FilmyBundle:Movies')->findOneBytitle('Django');
+        $actors = $this->getDoctrine()
+            ->getRepository('FilmyBundle:Actors')->findByidFilm($movies->getId());
+        $genres = $this->getDoctrine()
+            ->getRepository('FilmyBundle:Genres')->findByidFilm($genres->getId());
+
+        /*$query = $em->createQuery(
+                "SELECT DISTINCT m.title, a.name 
                 FROM FilmyBundle:Movies m INNER Join FilmyBundle:Actors a 
                 WHERE a.idFilm=1
                 and m.id=1
@@ -164,12 +324,13 @@ class DefaultController extends Controller
         $parameters=$query->getParameters();
         echo $sql;
         /*echo $movies[0]['title'];*/
-        echo "<pre>";
+        /*echo "<pre>";
         print_r($movies);
-        echo "</pre>";
-        return $this->render('FilmyBundle:Default:moviesview.html.twig', array(
-            'movies' => $movies
-            ));
+        echo "</pre>";*/
+        /*return $this->render('FilmyBundle:Default:moviesview.html.twig', array(
+            'movies' => $movies,
+            'actors' => $actors
+            ));*/
     }
 
 

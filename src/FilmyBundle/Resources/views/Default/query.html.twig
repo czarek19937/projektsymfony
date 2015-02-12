@@ -10,14 +10,9 @@
 
     {% block content %}
         
-      
+<h3>Dostępne filmy:</h3>
    <ul>
-        {#{% for movies in movies %}
-                <li> tytul:{{ movies.title }} </li>
-        {% endfor %}#}
-        {# <a href="http://v-ie.uek.krakow.pl/~s173152/app_dev.php/Movies/{{ moviesdisplay.image }}"></a> #}
-        {#<a href="{{path('filmy_moviesdisplay', {'moviesdisplay': ojciecchrzestny})}}">ojciec chrzestny link</a>#}
-        
+                
         {% for moviedisplay in moviesdisplay %}
 
 
@@ -25,65 +20,69 @@
                         <br>Tytul:<a href="{{path('filmy_moviesdisplay', {'id': moviedisplay.id})}}">{{ moviedisplay.title }} </a>
                         <br>Opis:{{ moviedisplay.description }}
                         <br>Id_filmu:{{ moviedisplay.id }}
-                        <br>Gatunek:{{ moviedisplay.genre }}
                         <br>Cena:{{ moviedisplay.price }}
+                        
                         <br>Aktorzy:
                         {% for actor in actors %}
                         {% if (actor.idfilm == moviedisplay.id) %}
                         {{ actor.Name }}
                             {% endif %}
                             {% endfor %}
-                            {% set i = 0 %}
-                        {% for review in reviews %}
-                                {% if (review.idfilm == moviedisplay.id) %}
-                                {% set i = i + 1 %}
+
+
+                        <br>Gatunek:
+                        {% for genre in genres %}
+                        {% if (genre.idfilm == moviedisplay.id) %}
+                        {{ genre.genre }}
                             {% endif %}
                             {% endfor %}
-                            {{i}}
-                            {% endfor %} 
+
+
+                        {% set i = 0 %}
+                        {% for review in reviews %}
+                            {% if (review.idfilm == moviedisplay.id) %}
+                                {% set i = i + 1 %}
+                            {% endif %}
+                        {% endfor %}
+                            
+            {% endfor %}
+            <br><br> 
                 </li>       
              
 
-                            
+<h3>Filmy wg. ilości recenzji</h3>                            
+                {% for opinion in opinion %}
+            
+            <a href="{{path('filmy_moviesdisplay', {'id': opinion.0.id})}}"><img src="{{asset('bundles/filmy/images/')}}{{ opinion.0.image }}.jpg" alt="Filmy" class="img-thumbnail" height="42" width="42"></a>
+            
+            <br><a href="{{path('filmy_moviesdisplay', {'id': opinion.0.id})}}">{{opinion.0.title}}</a>
+            <br>Liczba recenzji:{{ opinion.c}}<br>
+            
+            
+    
+    
+    {%endfor%}
 
 
-
-                           <br><br> Recenzje:
+                    
+<br><br><h3>Filmy przyporządkowane do gatunków</h3>                            
+         
                            
-                                {% for moviedisplay in moviesdisplay %}
-
-
-                <li><a href="{{path('filmy_moviesdisplay', {'id': moviedisplay.id})}}"><img src="{{asset('bundles/filmy/images/')}}{{ moviedisplay.image }}.jpg" alt="Filmy" class="img-thumbnail" height="42" width="42"></a>
-                        <br>Tytul:<a href="{{path('filmy_moviesdisplay', {'id': moviedisplay.id})}}">{{ moviedisplay.title }} </a>
-                        
-                            {% set i = 0 %}
-                        {% for review in reviews %}
-                                {% if (review.idfilm == moviedisplay.id) %}
-                                {% set i = i + 1 %}
-                            {% endif %}
-                            {% endfor %}
-                            Liczba recenzji:{{i}} 
-                       
-
-
-                            {% endfor %}
-                            
-        <br><br> Gatunki:
-                           
-                                {% for moviedisplay in moviesdisplay %}
-
-
-                            {% if moviedisplay.genre|default %}
-                        <br>Gatunek:{{ moviedisplay.genre }}
-                            {% else %}
-
-                            {% endif %}
-                        
-                                                    
-                       
-
-
-                            {% endfor %}
+            {% for kind in kind%}
+            
+            <br>{{kind.genre}}<br>
+            {%for variety in variety%}
+            {%if kind.genre==variety.genre%}
+            <a href="{{path('filmy_moviesdisplay', {'id': variety.id})}}"><img src="{{asset('bundles/filmy/images/')}}{{ variety.image }}.jpg" alt="Filmy" class="img-thumbnail" height="42" width="42"></a>
+            <a href="{{path('filmy_moviesdisplay', {'id': variety.id})}}">{{ variety.title }}</a>
+            {%endif%}
+            {%endfor%}
+           
+            
+            
+    
+    
+    {%endfor%}      
     
     
         

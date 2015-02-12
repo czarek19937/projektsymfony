@@ -45,24 +45,26 @@ class __TwigTemplate_b9f3c0cf8bcf61c88a69e89b4247dac3a93abcfa92d8b8312e95db3430a
             echo "    <p>Zalogowano jako ";
             echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute((isset($context["app"]) ? $context["app"] : $this->getContext($context, "app")), "user", array()), "username", array()), "html", null, true);
             echo "</p>
+    <p>Moje zamówienia</p>
+    <a href=\"http://v-ie.uek.krakow.pl/~s173152/app_dev.php/logout\">Wyloguj się</a>
 ";
         } else {
-            // line 9
+            // line 11
             echo "\t<p>Niezalogowany użytkownik<br></p>
 \t<a href=\"http://v-ie.uek.krakow.pl/~s173152/app_dev.php/login\">Zaloguj się</a>
 \t<br><a href=\"http://v-ie.uek.krakow.pl/~s173152/app_dev.php/register\">Zarejestruj się</a>
 ";
         }
-        // line 13
+        // line 15
         echo "
 
 ";
     }
 
-    // line 17
+    // line 19
     public function block_menu($context, array $blocks = array())
     {
-        // line 18
+        // line 20
         echo "
 ";
     }
@@ -79,6 +81,6 @@ class __TwigTemplate_b9f3c0cf8bcf61c88a69e89b4247dac3a93abcfa92d8b8312e95db3430a
 
     public function getDebugInfo()
     {
-        return array (  66 => 18,  63 => 17,  57 => 13,  51 => 9,  45 => 7,  43 => 6,  40 => 5,  37 => 4,  11 => 1,);
+        return array (  68 => 20,  65 => 19,  59 => 15,  53 => 11,  45 => 7,  43 => 6,  40 => 5,  37 => 4,  11 => 1,);
     }
 }
