@@ -17,17 +17,10 @@ class OrdersType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('status', array(
-        'choices'   => array(
-        'morning'   => 'Morning',
-        'afternoon' => 'Afternoon',
-        'evening'   => 'Evening',
-    ),
-    'multiple'  => true,
-));
+            ->add('status','choice', array('choices' => array('Oczekiwanie na płatność' => 'Oczekiwanie na płatność')))
             ->add('term')
-            ->add('form')
-            ->add('conditions')
+            ->add('form', 'choice', array('choices' => array('Karta kredytowa' => 'Karta kredytowa', 'Gotówka' => 'Gotówka')))
+            ->add('conditions', 'choice', array('choices' => array('Dostawa do domu' => 'Dostawa do domu', 'Odbiór w wypożyczalni' => 'Odbiór w wypożyczalni')))
             ->add('idFilm')
             ->add('idClient')
         ;
