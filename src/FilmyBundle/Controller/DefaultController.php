@@ -256,40 +256,27 @@ class DefaultController extends Controller
             ->getRepository('FilmyBundle:Review')->findAll(array(), array('idFilm'=>'asc'));
         $genres = $this->getDoctrine()
             ->getRepository('FilmyBundle:Genres')->findAll();
+        $users = $this->getDoctrine()
+            ->getRepository('FilmyBundle:User')->findAll();
         
 
         $em= $this->getDoctrine()->getEntityManager();
         
         
-            
-        
-            
-        
         $query = $em->createQuery(
-                "SELECT g.genre
-                FROM FilmyBundle:Genres g
-                INNER Join FilmyBundle:Movies m WITH g.idFilm=m.id
-                Group by g.genre
-                
-                ");
-
-
-        $test = $query->getArrayResult();
-
-        $query = $em->createQuery(
-                "SELECT g.genre, m.title, m.id
-                FROM FilmyBundle:Genres g
-                INNER Join FilmyBundle:Movies m WITH g.idFilm=m.id
+                "SELECT u, o
+                FROM FilmyBundle:User u
+                INNER Join FilmyBundle:Orders o WITH o.idClient=u.id
                 
                 
                 ");
-        $gat = $query->getArrayResult();
+        $users = $query->getArrayResult();
         $sql=$query->getSql();
         $parameters=$query->getParameters();
         echo $sql;
         /*echo $movies[0]['title'];*/
         echo "<pre>";
-        print_r($gat);
+        print_r($users);
         echo "</pre>";
 
         
@@ -301,9 +288,7 @@ class DefaultController extends Controller
         'actors' => $actors,
         'reviews' => $review,
         'genres' => $genres,
-        'test' => $test,
-        'gat' => $gat
-
+        'users' => $users
 ));
 
 /*

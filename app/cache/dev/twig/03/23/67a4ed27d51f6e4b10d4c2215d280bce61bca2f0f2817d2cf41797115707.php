@@ -63,57 +63,13 @@ class __TwigTemplate_032367a4ed27d51f6e4b10d4c2215d280bce61bca2f0f2817d2cf417971
         echo "
     \t\t";
         // line 17
-        echo $this->env->getExtension('dump')->dump($this->env, $context, (isset($context["test"]) ? $context["test"] : $this->getContext($context, "test")));
+        echo $this->env->getExtension('dump')->dump($this->env, $context, (isset($context["users"]) ? $context["users"] : $this->getContext($context, "users")));
         echo "
  
     
     
    
-    
-";
-        // line 23
-        $context['_parent'] = (array) $context;
-        $context['_seq'] = twig_ensure_traversable($context["test"]);
-        foreach ($context['_seq'] as $context["_key"] => $context["test"]) {
-            // line 24
-            echo "            
-            <br>";
-            // line 25
-            echo twig_escape_filter($this->env, $this->getAttribute($context["test"], "genre", array()), "html", null, true);
-            echo "
-            ";
-            // line 26
-            $context['_parent'] = (array) $context;
-            $context['_seq'] = twig_ensure_traversable($context["gat"]);
-            foreach ($context['_seq'] as $context["_key"] => $context["gat"]) {
-                // line 27
-                echo "            ";
-                if (($this->getAttribute($context["test"], "genre", array()) == $this->getAttribute($context["gat"], "genre", array()))) {
-                    // line 28
-                    echo "            <br>";
-                    echo twig_escape_filter($this->env, $this->getAttribute($context["gat"], "title", array()), "html", null, true);
-                    echo "
-            ";
-                }
-                // line 30
-                echo "            ";
-            }
-            $_parent = $context['_parent'];
-            unset($context['_seq'], $context['_iterated'], $context['_key'], $context['gat'], $context['_parent'], $context['loop']);
-            $context = array_intersect_key($context, $_parent) + $_parent;
-            // line 31
-            echo "           
-            
-            
-    
-    
-    ";
-        }
-        $_parent = $context['_parent'];
-        unset($context['_seq'], $context['_iterated'], $context['_key'], $context['test'], $context['_parent'], $context['loop']);
-        $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 36
-        echo "\t\t\t
+\t\t
 \t\t\t
 
 \t\t
@@ -139,6 +95,6 @@ class __TwigTemplate_032367a4ed27d51f6e4b10d4c2215d280bce61bca2f0f2817d2cf417971
 
     public function getDebugInfo()
     {
-        return array (  116 => 36,  105 => 31,  99 => 30,  93 => 28,  90 => 27,  86 => 26,  82 => 25,  79 => 24,  75 => 23,  66 => 17,  62 => 16,  58 => 15,  54 => 14,  48 => 10,  45 => 9,  40 => 4,  37 => 3,  11 => 1,);
+        return array (  66 => 17,  62 => 16,  58 => 15,  54 => 14,  48 => 10,  45 => 9,  40 => 4,  37 => 3,  11 => 1,);
     }
 }

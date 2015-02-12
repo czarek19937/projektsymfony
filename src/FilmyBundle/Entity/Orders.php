@@ -12,36 +12,47 @@ class Orders
 {
     /**
      * @var integer
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
 
     /**
      * @var string
+     * @ORM\Column(name="status", type="string", length=255)
      */
     private $status;
 
     /**
      * @var \DateTime
+     * @ORM\Column(name="term", type="datetime")
      */
     private $term;
 
     /**
      * @var string
+     * @ORM\Column(name="form", type="string", length=255)
      */
     private $form;
 
     /**
      * @var string
+     * @ORM\Column(name="conditions", type="string", length=255)
      */
     private $conditions;
 
     /**
      * @var integer
+     * @ORM\Column(name="Id_film", type="integer")
+     * @ORM\ManyToMany(targetEntity="FilyBundle\Entity\Movies", mappedBy="movies")
      */
     private $idFilm;
 
     /**
      * @var integer
+     * @ORM\Column(name="Id_client", type="integer")
+     * @ORM\OneToOne(targetEntity="User", inversedBy="user")
      */
     private $idClient;
 

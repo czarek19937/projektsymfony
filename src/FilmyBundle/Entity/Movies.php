@@ -16,8 +16,10 @@ class Movies
      * @ORM\JoinTable(name="Actors")
      * @ORM\ManyToMany(targetEntity="FilyBundle\Entity\Genres", inversedBy="Id_film")
      * @ORM\JoinTable(name="Genres")
-     * @ORM\ManyToMany(targetEntity="FilyBundle\Entity\Review", inversedBy="Id_film")
+     * @ORM\ManyToOne(targetEntity="FilyBundle\Entity\Review", inversedBy="Id_film")
      * @ORM\JoinTable(name="Review")
+     * @ORM\ManyToMany(targetEntity="FilyBundle\Entity\Orders", inversedBy="Id_film")
+     * @ORM\JoinTable(name="Orders")
      * @ORM\Column(name="id", type="integer")
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")

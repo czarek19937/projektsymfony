@@ -5,6 +5,8 @@ namespace FilmyBundle\Form;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
+use Symfony\Component\Form\Extension\Core\ChoiceList\ChoiceList;
+
 
 class OrdersType extends AbstractType
 {
@@ -15,7 +17,14 @@ class OrdersType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('status')
+            ->add('status', array(
+        'choices'   => array(
+        'morning'   => 'Morning',
+        'afternoon' => 'Afternoon',
+        'evening'   => 'Evening',
+    ),
+    'multiple'  => true,
+));
             ->add('term')
             ->add('form')
             ->add('conditions')

@@ -50,7 +50,11 @@ class __TwigTemplate_12e36d5c52dee809b085875ac8b98f0ef56112272fe532375d14ac6f854
 \t\t
 \t\t<form method=\"POST\">
 \t\t";
-        // line 14
+        // line 15
+        echo "
+\t\t
+\t\t";
+        // line 17
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), 'widget');
         echo "
 \t\t<button type=\"submit\">Dodaj Wpis</button>
@@ -77,6 +81,6 @@ class __TwigTemplate_12e36d5c52dee809b085875ac8b98f0ef56112272fe532375d14ac6f854
 
     public function getDebugInfo()
     {
-        return array (  54 => 14,  48 => 10,  45 => 9,  40 => 4,  37 => 3,  11 => 1,);
+        return array (  58 => 17,  54 => 15,  48 => 10,  45 => 9,  40 => 4,  37 => 3,  11 => 1,);
     }
 }

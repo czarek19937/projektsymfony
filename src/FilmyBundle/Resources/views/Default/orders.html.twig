@@ -11,6 +11,9 @@
 		<h2>Dodaj Order</h2>
 		
 		<form method="POST">
+		{#{{ form_widget(form.status, {value: "28" } ) }}#}
+
+		
 		{{ form_widget(form) }}
 		<button type="submit">Dodaj Wpis</button>
 		</form>
