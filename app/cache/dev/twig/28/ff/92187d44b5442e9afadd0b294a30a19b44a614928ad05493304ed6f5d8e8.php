@@ -155,18 +155,54 @@ class __TwigTemplate_28ff92187d44b5442e9afadd0b294a30a19b44a614928ad05493304ed6f
         // line 46
         echo "            <br><br> 
                 </li>       
- <h3>Popularne fIlmy:</h3>               
+ <h3>Popularne fIlmywg. ilości wypożyczeń:</h3>
+ ";
+        // line 49
+        $context['_parent'] = (array) $context;
+        $context['_seq'] = twig_ensure_traversable($context["lend"]);
+        foreach ($context['_seq'] as $context["_key"] => $context["lend"]) {
+            // line 50
+            echo "            
+            <a href=\"";
+            // line 51
+            echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("filmy_moviesdisplay", array("id" => $this->getAttribute($this->getAttribute($context["lend"], 0, array()), "id", array()))), "html", null, true);
+            echo "\"><img src=\"";
+            echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/filmy/images/"), "html", null, true);
+            echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute($context["lend"], 0, array()), "image", array()), "html", null, true);
+            echo ".jpg\" alt=\"Filmy\" class=\"img-thumbnail\" height=\"42\" width=\"42\"></a>
+            
+            <br><a href=\"";
+            // line 53
+            echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("filmy_moviesdisplay", array("id" => $this->getAttribute($this->getAttribute($context["lend"], 0, array()), "id", array()))), "html", null, true);
+            echo "\">";
+            echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute($context["lend"], 0, array()), "title", array()), "html", null, true);
+            echo "</a>
+            <br>Liczba wypożyczeń:";
+            // line 54
+            echo twig_escape_filter($this->env, $this->getAttribute($context["lend"], "c", array()), "html", null, true);
+            echo "<br>
+            
+            
+    
+    
+    ";
+        }
+        $_parent = $context['_parent'];
+        unset($context['_seq'], $context['_iterated'], $context['_key'], $context['lend'], $context['_parent'], $context['loop']);
+        $context = array_intersect_key($context, $_parent) + $_parent;
+        // line 59
+        echo "               
 
 <h3>Filmy wg. ilości recenzji</h3>                            
                 ";
-        // line 51
+        // line 62
         $context['_parent'] = (array) $context;
         $context['_seq'] = twig_ensure_traversable($context["opinion"]);
         foreach ($context['_seq'] as $context["_key"] => $context["opinion"]) {
-            // line 52
+            // line 63
             echo "            
             <a href=\"";
-            // line 53
+            // line 64
             echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("filmy_moviesdisplay", array("id" => $this->getAttribute($this->getAttribute($context["opinion"], 0, array()), "id", array()))), "html", null, true);
             echo "\"><img src=\"";
             echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/filmy/images/"), "html", null, true);
@@ -174,13 +210,13 @@ class __TwigTemplate_28ff92187d44b5442e9afadd0b294a30a19b44a614928ad05493304ed6f
             echo ".jpg\" alt=\"Filmy\" class=\"img-thumbnail\" height=\"42\" width=\"42\"></a>
             
             <br><a href=\"";
-            // line 55
+            // line 66
             echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("filmy_moviesdisplay", array("id" => $this->getAttribute($this->getAttribute($context["opinion"], 0, array()), "id", array()))), "html", null, true);
             echo "\">";
             echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute($context["opinion"], 0, array()), "title", array()), "html", null, true);
             echo "</a>
             <br>Liczba recenzji:";
-            // line 56
+            // line 67
             echo twig_escape_filter($this->env, $this->getAttribute($context["opinion"], "c", array()), "html", null, true);
             echo "<br>
             
@@ -192,7 +228,7 @@ class __TwigTemplate_28ff92187d44b5442e9afadd0b294a30a19b44a614928ad05493304ed6f
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['opinion'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 62
+        // line 73
         echo "
 
                     
@@ -200,25 +236,25 @@ class __TwigTemplate_28ff92187d44b5442e9afadd0b294a30a19b44a614928ad05493304ed6f
          
                            
             ";
-        // line 68
+        // line 79
         $context['_parent'] = (array) $context;
         $context['_seq'] = twig_ensure_traversable($context["kind"]);
         foreach ($context['_seq'] as $context["_key"] => $context["kind"]) {
-            // line 69
+            // line 80
             echo "            
             <br>";
-            // line 70
+            // line 81
             echo twig_escape_filter($this->env, $this->getAttribute($context["kind"], "genre", array()), "html", null, true);
             echo "<br>
             ";
-            // line 71
+            // line 82
             $context['_parent'] = (array) $context;
             $context['_seq'] = twig_ensure_traversable($context["variety"]);
             foreach ($context['_seq'] as $context["_key"] => $context["variety"]) {
-                // line 72
+                // line 83
                 echo "            ";
                 if (($this->getAttribute($context["kind"], "genre", array()) == $this->getAttribute($context["variety"], "genre", array()))) {
-                    // line 73
+                    // line 84
                     echo "            <a href=\"";
                     echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("filmy_moviesdisplay", array("id" => $this->getAttribute($context["variety"], "id", array()))), "html", null, true);
                     echo "\"><img src=\"";
@@ -226,20 +262,20 @@ class __TwigTemplate_28ff92187d44b5442e9afadd0b294a30a19b44a614928ad05493304ed6f
                     echo twig_escape_filter($this->env, $this->getAttribute($context["variety"], "image", array()), "html", null, true);
                     echo ".jpg\" alt=\"Filmy\" class=\"img-thumbnail\" height=\"42\" width=\"42\"></a>
             <a href=\"";
-                    // line 74
+                    // line 85
                     echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("filmy_moviesdisplay", array("id" => $this->getAttribute($context["variety"], "id", array()))), "html", null, true);
                     echo "\">";
                     echo twig_escape_filter($this->env, $this->getAttribute($context["variety"], "title", array()), "html", null, true);
                     echo "</a>
             ";
                 }
-                // line 76
+                // line 87
                 echo "            ";
             }
             $_parent = $context['_parent'];
             unset($context['_seq'], $context['_iterated'], $context['_key'], $context['variety'], $context['_parent'], $context['loop']);
             $context = array_intersect_key($context, $_parent) + $_parent;
-            // line 77
+            // line 88
             echo "           
             
             
@@ -250,7 +286,7 @@ class __TwigTemplate_28ff92187d44b5442e9afadd0b294a30a19b44a614928ad05493304ed6f
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['kind'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 82
+        // line 93
         echo "      
 
 ";
@@ -268,6 +304,6 @@ class __TwigTemplate_28ff92187d44b5442e9afadd0b294a30a19b44a614928ad05493304ed6f
 
     public function getDebugInfo()
     {
-        return array (  254 => 82,  243 => 77,  237 => 76,  230 => 74,  222 => 73,  219 => 72,  215 => 71,  211 => 70,  208 => 69,  204 => 68,  196 => 62,  184 => 56,  178 => 55,  170 => 53,  167 => 52,  163 => 51,  156 => 46,  149 => 44,  143 => 43,  140 => 42,  137 => 41,  134 => 40,  129 => 39,  127 => 38,  123 => 36,  117 => 35,  111 => 33,  108 => 32,  104 => 31,  99 => 28,  93 => 27,  87 => 25,  84 => 24,  80 => 23,  74 => 20,  70 => 19,  66 => 18,  60 => 17,  53 => 16,  49 => 14,  45 => 13,  39 => 9,  36 => 8,  11 => 1,);
+        return array (  290 => 93,  279 => 88,  273 => 87,  266 => 85,  258 => 84,  255 => 83,  251 => 82,  247 => 81,  244 => 80,  240 => 79,  232 => 73,  220 => 67,  214 => 66,  206 => 64,  203 => 63,  199 => 62,  194 => 59,  182 => 54,  176 => 53,  168 => 51,  165 => 50,  161 => 49,  156 => 46,  149 => 44,  143 => 43,  140 => 42,  137 => 41,  134 => 40,  129 => 39,  127 => 38,  123 => 36,  117 => 35,  111 => 33,  108 => 32,  104 => 31,  99 => 28,  93 => 27,  87 => 25,  84 => 24,  80 => 23,  74 => 20,  70 => 19,  66 => 18,  60 => 17,  53 => 16,  49 => 14,  45 => 13,  39 => 9,  36 => 8,  11 => 1,);
     }
 }

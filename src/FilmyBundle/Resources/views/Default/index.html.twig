@@ -45,7 +45,18 @@
             {% endfor %}
             <br><br> 
                 </li>       
- <h3>Popularne fIlmy:</h3>               
+ <h3>Popularne fIlmywg. ilości wypożyczeń:</h3>
+ {% for lend in lend %}
+            
+            <a href="{{path('filmy_moviesdisplay', {'id': lend.0.id})}}"><img src="{{asset('bundles/filmy/images/')}}{{ lend.0.image }}.jpg" alt="Filmy" class="img-thumbnail" height="42" width="42"></a>
+            
+            <br><a href="{{path('filmy_moviesdisplay', {'id': lend.0.id})}}">{{lend.0.title}}</a>
+            <br>Liczba wypożyczeń:{{ lend.c}}<br>
+            
+            
+    
+    
+    {%endfor%}               
 
 <h3>Filmy wg. ilości recenzji</h3>                            
                 {% for opinion in opinion %}

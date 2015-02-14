@@ -43,11 +43,11 @@
     </ul>
 <a href="http://v-ie.uek.krakow.pl/~s173152/app_dev.php/">Wróc do strony poprzedniej</a><br>
 {% if app.user.username is defined %}
-<a href="http://v-ie.uek.krakow.pl/~s173152/app_dev.php/"><button type="button" class="btn btn-primary">
+<a href="http://v-ie.uek.krakow.pl/~s173152/app_dev.php/Orders"><button type="button" class="btn btn-primary">Wypożycz - przycisk</button></a><br>
 {% else %}
-<a href="http://v-ie.uek.krakow.pl/~s173152/app_dev.php/login"><button type="button" class="btn btn-primary">
+<a href="http://v-ie.uek.krakow.pl/~s173152/app_dev.php/login"><button type="button" class="btn btn-primary">Zaloguj się</button></a><br>
 {%endif%}
-Wypożycz - przycisk</button></a><br>
+
 {% if app.user.username is defined %}
 <a href="http://v-ie.uek.krakow.pl/~s173152/app_dev.php/Review"><button type="button" class="btn btn-primary">Dodaj recenzje - przycisk</button></a>
 {%endif%}

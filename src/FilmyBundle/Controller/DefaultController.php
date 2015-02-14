@@ -65,6 +65,16 @@ class DefaultController extends Controller
                 
                 ");
         $variety = $query->getArrayResult();
+
+        $em= $this->getDoctrine()->getEntityManager();
+        $query = $em->createQuery(
+                "SELECT m, COUNT(o.idFilm) as c
+                FROM FilmyBundle:Orders o
+                INNER Join FilmyBundle:Movies m WITH o.idFilm=m.id
+                Group by o.idFilm
+                Order by c desc
+                ");
+        $lend = $query->getArrayResult();
         
 
 
@@ -75,7 +85,8 @@ class DefaultController extends Controller
         'genres' => $genres,
         'opinion' => $opinion,
         'kind' => $kind,
-        'variety' => $variety
+        'variety' => $variety,
+        'lend' => $lend
 
 ));
     }
