@@ -34,3 +34,9 @@ filmy_query:
 filmy_reviewsdisplay:
     path:   /ReviewDisplay
     defaults: { _controller: FilmyBundle:Default:ReviewsDisplay }
+filmy_orderslist:
+    path:   /OrdersList
+    defaults: { _controller: FilmyBundle:Default:OrdersList }
+filmy_ordersbuy:
+    path:   /OrdersBuy
+    defaults: { _controller: FilmyBundle:Default:OrdersBuy }

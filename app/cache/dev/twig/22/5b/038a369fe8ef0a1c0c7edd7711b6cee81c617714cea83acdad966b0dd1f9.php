@@ -57,6 +57,9 @@ class __TwigTemplate_225b038a369fe8ef0a1c0c7edd7711b6cee81c617714cea83acdad966b0
             // line 10
             echo "    ";
         }
+        // line 11
+        echo "    <a href=\"http://v-ie.uek.krakow.pl/~s173152/app_dev.php/\">Wróc do strony głównej</a>
+";
     }
 
     public function getTemplateName()
@@ -71,6 +74,6 @@ class __TwigTemplate_225b038a369fe8ef0a1c0c7edd7711b6cee81c617714cea83acdad966b0
 
     public function getDebugInfo()
     {
-        return array (  58 => 10,  49 => 9,  46 => 8,  44 => 7,  39 => 6,  36 => 5,  11 => 1,);
+        return array (  61 => 11,  58 => 10,  49 => 9,  46 => 8,  44 => 7,  39 => 6,  36 => 5,  11 => 1,);
     }
 }

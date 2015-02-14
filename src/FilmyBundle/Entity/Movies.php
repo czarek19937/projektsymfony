@@ -12,14 +12,12 @@ class Movies
 {
     /**
      * @var integer
-     * @ORM\ManyToMany(targetEntity="FilyBundle\Entity\Actors", inversedBy="Id_film")
+     * @ORM\ManyToMany(targetEntity="FilmyBundle\Entity\Actors", inversedBy="Id_film")
      * @ORM\JoinTable(name="Actors")
-     * @ORM\ManyToMany(targetEntity="FilyBundle\Entity\Genres", inversedBy="Id_film")
+     * @ORM\ManyToMany(targetEntity="FilmyBundle\Entity\Genres", inversedBy="Id_film")
      * @ORM\JoinTable(name="Genres")
-     * @ORM\ManyToOne(targetEntity="FilyBundle\Entity\Review", inversedBy="Id_film")
+     * @ORM\ManyToOne(targetEntity="FilmyBundle\Entity\Review", inversedBy="Id_film")
      * @ORM\JoinTable(name="Review")
-     * @ORM\ManyToMany(targetEntity="FilyBundle\Entity\Orders", inversedBy="Id_film")
-     * @ORM\JoinTable(name="Orders")
      * @ORM\Column(name="id", type="integer")
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")

@@ -5,8 +5,10 @@
 
 {% if app.user.username is defined %}
     <p>Zalogowano jako {{ app.user.username }}</p>
-    <p>Moje zamówienia</p>
-    <a href="http://v-ie.uek.krakow.pl/~s173152/app_dev.php/logout">Wyloguj się</a>
+    <a href="http://v-ie.uek.krakow.pl/~s173152/app_dev.php/OrdersList">Lista zamówień</a>
+    <br><a href="http://v-ie.uek.krakow.pl/~s173152/app_dev.php/OrdersBuy">Lista zakupionych filmów</a>
+    <br><a href="http://v-ie.uek.krakow.pl/~s173152/app_dev.php/logout">Wyloguj się</a>
+
 {% else %}
 	<p>Niezalogowany użytkownik<br></p>
 	<a href="http://v-ie.uek.krakow.pl/~s173152/app_dev.php/login">Zaloguj się</a>

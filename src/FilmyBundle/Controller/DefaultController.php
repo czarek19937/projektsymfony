@@ -260,6 +260,11 @@ class DefaultController extends Controller
             ->getRepository('FilmyBundle:User')->findAll();
         
 
+        $email = $this->getUser()->getEmail();
+        $id = $this->getUser()->getId();
+        echo $id,$email;
+
+
         $em= $this->getDoctrine()->getEntityManager();
         
         
@@ -278,7 +283,6 @@ class DefaultController extends Controller
         echo "<pre>";
         print_r($users);
         echo "</pre>";
-
         
     
         
@@ -328,7 +332,95 @@ class DefaultController extends Controller
     }*/
 
 
+    public function OrdersListAction(Request $request)
+    {
+        $email = $this->getUser()->getEmail();
+        $id = $this->getUser()->getId();
 
+        
+        $users = $this->getDoctrine()
+            ->getRepository('FilmyBundle:User')->findOneByid($id);
+        $orders = $this->getDoctrine()
+            ->getRepository('FilmyBundle:Orders')->findByidClient($users->getId());
+        $movies = $this->getDoctrine()
+            ->getRepository('FilmyBundle:Movies')->findAll();
+       /*      $movies = NULL;
+            foreach ($orders as $orders ) {
+                $movies = $this->getDoctrine()
+            ->getRepository('FilmyBundle:Movies')->findByid($orders->getidFilm());
+            }
+        */
+        $em= $this->getDoctrine()->getEntityManager();
+        $query = $em->createQuery(
+                "SELECT u, o, m
+                FROM FilmyBundle:User u
+                INNER Join FilmyBundle:Orders o WITH o.idClient=u.id
+                INNER Join FilmyBundle:Movies m WITH o.idFilm=m.id
+                Where o.idClient=$id
+                
+                ");
+        $relations = $query->getArrayResult();
+        /*$sql=$query->getSql();
+        $parameters=$query->getParameters();
+        echo $sql;*/
+        /*echo $movies[0]['title'];*/
+        /*echo "<pre>";
+        print_r($relations);
+        echo "</pre>";*/
+        
+
+        return $this->render('FilmyBundle:Default:orderslist.html.twig', array(
+        'movies' => $movies,
+        'users' => $users,
+        'orders' => $orders,
+        'relations' => $relations
+));
+    }
+
+    public function OrdersBuyAction(Request $request)
+    {
+        $email = $this->getUser()->getEmail();
+        $id = $this->getUser()->getId();
+
+        
+        $users = $this->getDoctrine()
+            ->getRepository('FilmyBundle:User')->findOneByid($id);
+        $orders = $this->getDoctrine()
+            ->getRepository('FilmyBundle:Orders')->findByidClient($users->getId());
+        $movies = $this->getDoctrine()
+            ->getRepository('FilmyBundle:Movies')->findAll();
+       /*      $movies = NULL;
+            foreach ($orders as $orders ) {
+                $movies = $this->getDoctrine()
+            ->getRepository('FilmyBundle:Movies')->findByid($orders->getidFilm());
+            }
+        */
+        $em= $this->getDoctrine()->getEntityManager();
+        $query = $em->createQuery(
+                "SELECT u, o, m
+                FROM FilmyBundle:User u
+                INNER Join FilmyBundle:Orders o WITH o.idClient=u.id
+                INNER Join FilmyBundle:Movies m WITH o.idFilm=m.id
+                Where o.idClient=$id and o.status='Zapłacone'
+                
+                ");
+        $relations = $query->getArrayResult();
+        /*$sql=$query->getSql();
+        $parameters=$query->getParameters();
+        echo $sql;
+        /*echo $movies[0]['title'];*/
+        /*echo "<pre>";
+        print_r($relations);
+        echo "</pre>";*/
+        
+
+        return $this->render('FilmyBundle:Default:ordersbuy.html.twig', array(
+        'movies' => $movies,
+        'users' => $users,
+        'orders' => $orders,
+        'relations' => $relations
+));
+    }
 
     public function ActorsAction(Request $request)
     {

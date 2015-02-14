@@ -45,7 +45,9 @@ class Orders
     /**
      * @var integer
      * @ORM\Column(name="Id_film", type="integer")
-     * @ORM\ManyToMany(targetEntity="FilyBundle\Entity\Movies", mappedBy="movies")
+     * @ORM\ManyToMany(targetEntity="Phonenumber")
+     * @JoinTable(name="Movies",
+     *      joinColumns={@JoinColumn(name="Id_film", referencedColumnName="id")},
      */
     private $idFilm;
 

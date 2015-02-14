@@ -22,7 +22,7 @@ class Review
     /**
      * @var integer
      * @ORM\Column(name="Id_film", type="integer")
-     * @ORM\OneToMany(targetEntity="FilyBundle\Entity\Movies", mappedBy="movies")
+     * @ORM\OneToMany(targetEntity="FilmyBundle\Entity\Movies", mappedBy="movies")
      */
     private $idFilm;
 
