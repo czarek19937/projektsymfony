@@ -2,6 +2,7 @@
 
 namespace FilmyBundle\Controller;
 
+
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Doctrine\Common\Collections\ArrayCollection;
@@ -187,7 +188,7 @@ class DefaultController extends Controller
 
     public function ReviewAction(Request $request)
     {
-
+        
         $review = new Review();
         
         $form = $this ->createForm(new ReviewType(), $review);
@@ -343,6 +344,63 @@ class DefaultController extends Controller
     }*/
 
 
+
+    public function OrdersAction(Request $request)
+    {
+
+        
+        $email = $this->getUser()->getEmail();
+        $id = $this->getUser()->getId();
+        echo $id,$email;
+        $orders = new Orders();
+        
+        $form = $this ->createForm(new OrdersType(), $orders);
+        if ($request->isMethod('POST')
+            && $form->handleRequest($request)
+            && $form->isValid()
+            )   {
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($orders);
+            $em->flush();
+            $mailer = $this->get('mailer');
+            // $message = $mailer->createMessage()
+            $message = \Swift_Message::newInstance()
+                ->setSubject('You have Completed Order!')
+                ->setFrom('s173152@wizard.uek.krakow.pl')
+                ->setTo($email)
+                ->setBody(
+                    $this->renderView(
+                    // app/Resources/views/Emails/registration.html.twig
+                        'default/confirmorder.html.twig',
+                        array('orders' => $orders
+                              
+                            )
+                    ),
+                    'text/html'
+                );
+        /*
+         * If you also want to include a plaintext version of the message
+        ->addPart(
+            $this->renderView(
+                'Emails/registration.txt.twig',
+                array('name' => $name)
+            ),
+            'text/plain'
+        )
+        */
+            // echo "<pre>";
+            // var_dump($message);
+            // echo "</pre>";
+            // die;            
+            $mailer->send($message);
+            return $this->redirect($this->generateUrl('filmy_homepage'));
+        }
+
+            return $this->render('FilmyBundle:Default:orders.html.twig', array('form'=>$form->createView()));
+
+            $form->handleRequest($request);
+
+    }
     public function OrdersListAction(Request $request)
     {
         $email = $this->getUser()->getEmail();
@@ -470,48 +528,7 @@ class DefaultController extends Controller
         
     }
 
-
-
-    public function OrdersAction(Request $request)
-    {
-
-        $orders = new Orders();
-        
-        $form = $this ->createForm(new OrdersType(), $orders);
-        if ($request->isMethod('POST')
-            && $form->handleRequest($request)
-            && $form->isValid()
-            )   {
-            $em = $this->getDoctrine()->getManager();
-            $em->persist($orders);
-            $em->flush();
-            return $this->redirect($this->generateUrl('filmy_orders'));
-        }
-
-            return $this->render('FilmyBundle:Default:orders.html.twig', array('form'=>$form->createView()));
-
-            $form->handleRequest($request);
-
-    }
-
-
-
-    public function OjciecChrzestnyAction()
-    {
-        $em = $this->getDoctrine()->getEntityManager();
-        $qb = $em->createQueryBuilder();
-        $em = $qb->getEntityManager();
-        $query = $em->createQuery( 'SELECT a FROM FilmyBundle:Movies a' );//druga opcja zapytan
-        $moviesdisplay = $query->getResult(); // array of User objects
-        return $this->render('FilmyBundle:Movies:ojciecchrzestny.html.twig', array('moviesdisplay' => $moviesdisplay));
-    }
-
-
-
-    public function CommedyAction()
-    {
-        return $this->render('FilmyBundle:Types:Commedy.html.twig', array());
-    }
+ 
 
 
 

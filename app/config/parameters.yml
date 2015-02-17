@@ -7,8 +7,8 @@ parameters:
     database_user: s173152
     database_password: DXTmBLUT
     mailer_transport: smtp
-    mailer_host: 127.0.0.1
-    mailer_user: null
-    mailer_password: null
+    mailer_host: wizard.uek.krakow.pl
+    mailer_user: s173152
+    mailer_password: czarek1993
     locale: pl
     secret: ThisTokenIsNotSoSecretChangeIt

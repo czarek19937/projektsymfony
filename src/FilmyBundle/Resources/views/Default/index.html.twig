@@ -6,19 +6,28 @@
 
 
 {% block content %}
-
-<h3>Dostępne filmy:</h3>
-   <ul>
-                
+<div style="height:20px; width:20px; padding:9px; 
+background:url(./images/ojciecchrzestny.jpg) no-repeat red"></div>
+<h3 style="text-align: center">Dostępne filmy:</h3>
+   
+<div class="container">           
+<div class="row">
+                 
         {% for moviedisplay in moviesdisplay %}
+  
+  
 
+<div class="col-md-1 col-md-offset-0">
 
-                <li><a href="{{path('filmy_moviesdisplay', {'id': moviedisplay.id})}}"><img src="{{asset('bundles/filmy/images/')}}{{ moviedisplay.image }}.jpg" alt="Filmy" class="img-thumbnail" height="42" width="42"></a>
-                        <br>Tytul:<a href="{{path('filmy_moviesdisplay', {'id': moviedisplay.id})}}">{{ moviedisplay.title }} </a>
-                        <br>Opis:{{ moviedisplay.description }}
+                <br><a href="{{path('filmy_moviesdisplay', {'id': moviedisplay.id})}}">
+                <img src="{{asset('bundles/filmy/images/')}}{{ moviedisplay.image }}.jpg"
+                 alt="Filmy" class="img-circle" height="70" width="70"></a>
+                        {#Tytul:#}<a href="{{path('filmy_moviesdisplay', {'id': moviedisplay.id})}}">
+                        {{ moviedisplay.title }} </a>
+                        {#<br>Opis:{{ moviedisplay.description }}
                         <br>Id_filmu:{{ moviedisplay.id }}
                         <br>Cena:{{ moviedisplay.price }}
-                        
+                      
                         <br>Aktorzy:
                         {% for actor in actors %}
                         {% if (actor.idfilm == moviedisplay.id) %}
@@ -40,48 +49,60 @@
                             {% if (review.idfilm == moviedisplay.id) %}
                                 {% set i = i + 1 %}
                             {% endif %}
-                        {% endfor %}
-                            
+                        {% endfor %}#}
+</div>  
+
+                        
             {% endfor %}
-            <br><br> 
-                </li>       
- <h3>Popularne fIlmywg. ilości wypożyczeń:</h3>
- {% for lend in lend %}
-            
-            <a href="{{path('filmy_moviesdisplay', {'id': lend.0.id})}}"><img src="{{asset('bundles/filmy/images/')}}{{ lend.0.image }}.jpg" alt="Filmy" class="img-thumbnail" height="42" width="42"></a>
-            
-            <br><a href="{{path('filmy_moviesdisplay', {'id': lend.0.id})}}">{{lend.0.title}}</a>
-            <br>Liczba wypożyczeń:{{ lend.c}}<br>
-            
-            
-    
-    
-    {%endfor%}               
-
-<h3>Filmy wg. ilości recenzji</h3>                            
-                {% for opinion in opinion %}
-            
-            <a href="{{path('filmy_moviesdisplay', {'id': opinion.0.id})}}"><img src="{{asset('bundles/filmy/images/')}}{{ opinion.0.image }}.jpg" alt="Filmy" class="img-thumbnail" height="42" width="42"></a>
-            
-            <br><a href="{{path('filmy_moviesdisplay', {'id': opinion.0.id})}}">{{opinion.0.title}}</a>
-            <br>Liczba recenzji:{{ opinion.c}}<br>
-            
-            
-    
-    
-    {%endfor%}
-
-
+  </div>            
+   </div>         
+             
+    <div class="col-md-4">    
+ <h3>Popularne fIlmy wg. ilości wypożyczeń:</h3>
+     
+            {% for lend in lend %}
+           
+                    <a href="{{path('filmy_moviesdisplay', {'id': lend.0.id})}}">
+                        <img src="{{asset('bundles/filmy/images/')}}{{ lend.0.image }}.jpg" alt="Filmy"
+                         class="img-circle" height="70" width="70"></a>
                     
-<br><br><h3>Filmy przyporządkowane do gatunków</h3>                            
+                    <br><a href="{{path('filmy_moviesdisplay', {'id': lend.0.id})}}">{{lend.0.title}}</a>
+                    <br>Liczba wypożyczeń:{{ lend.c}}<br>
          
-                           
+            
+    
+   
+            {%endfor%}               
+    </div>
+    <div class="col-md-4"> 
+<h3>Filmy wg. ilości recenzji</h3>
+                                
+            {% for opinion in opinion %}
+              
+                    <a href="{{path('filmy_moviesdisplay', {'id': opinion.0.id})}}">
+                        <img src="{{asset('bundles/filmy/images/')}}{{ opinion.0.image }}.jpg" alt="Filmy"
+                         class="img-circle" height="70" width="70"></a>
+                    
+                    <br><a href="{{path('filmy_moviesdisplay', {'id': opinion.0.id})}}">{{opinion.0.title}}</a>
+                    <br>Liczba recenzji:{{ opinion.c}}<br>
+         
+            
+    
+            
+            {%endfor%}
+        </div>
+ <div class="col-md-4">                
+<h3>Filmy przyporządkowane do gatunków</h3>                            
+        
+                 
             {% for kind in kind%}
             
             <br>{{kind.genre}}<br>
             {%for variety in variety%}
             {%if kind.genre==variety.genre%}
-            <a href="{{path('filmy_moviesdisplay', {'id': variety.id})}}"><img src="{{asset('bundles/filmy/images/')}}{{ variety.image }}.jpg" alt="Filmy" class="img-thumbnail" height="42" width="42"></a>
+            <a href="{{path('filmy_moviesdisplay', {'id': variety.id})}}">
+                <img src="{{asset('bundles/filmy/images/')}}{{ variety.image }}.jpg" alt="Filmy"
+                 class="img-circle" height="70" width="70"></a>
             <a href="{{path('filmy_moviesdisplay', {'id': variety.id})}}">{{ variety.title }}</a>
             {%endif%}
             {%endfor%}
@@ -90,6 +111,6 @@
             
     
     
-    {%endfor%}      
-
+    {%endfor%}
+</div>
 {% endblock %}

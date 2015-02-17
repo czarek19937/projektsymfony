@@ -1,0 +1,23 @@
+{% extends "FilmyBundle::bars.html.twig" %}
+
+	{% block header %}
+		<h1>Confirm Order</h1>
+	{% endblock %}
+
+
+
+	{% block content %}
+		
+
+		<br>Status zamówienia:{{ orders.status }}
+		<br>Forma płatności{{ orders.form }}
+		<br>Warunki odbioru:{{ orders.conditions }}
+		<br>Zamówienie na Film(idfilmu):{{ orders.idFilm }}
+
+    
+        
+ 
+    	
+ 
+
+	{% endblock %}

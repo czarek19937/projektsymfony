@@ -45,22 +45,20 @@ class __TwigTemplate_ebeea93efe941081943afb925e9f0eeb18d76198f76d4a6aeafd81823a7
         // line 17
         echo "
 \t</header>
-\t<div class=\"row\">
-\t\t<div class=\"col-md-8\">
+\t
 \t\t\t";
-        // line 21
+        // line 20
         $this->displayBlock('menu', $context, $blocks);
-        // line 23
-        echo "\t\t</div>
-\t</div>
-
-\t<div class=\"container\">
-\t\t\t";
-        // line 27
-        $this->displayBlock('content', $context, $blocks);
-        // line 29
+        // line 22
         echo "\t\t
-\t</div>
+
+\t
+\t\t\t";
+        // line 25
+        $this->displayBlock('content', $context, $blocks);
+        // line 27
+        echo "\t\t
+\t
 \t
 
 
@@ -82,17 +80,17 @@ class __TwigTemplate_ebeea93efe941081943afb925e9f0eeb18d76198f76d4a6aeafd81823a7
         echo "\t\t";
     }
 
-    // line 21
+    // line 20
     public function block_menu($context, array $blocks = array())
     {
-        // line 22
+        // line 21
         echo "\t\t\t";
     }
 
-    // line 27
+    // line 25
     public function block_content($context, array $blocks = array())
     {
-        // line 28
+        // line 26
         echo "\t\t\t";
     }
 
@@ -108,6 +106,6 @@ class __TwigTemplate_ebeea93efe941081943afb925e9f0eeb18d76198f76d4a6aeafd81823a7
 
     public function getDebugInfo()
     {
-        return array (  96 => 28,  93 => 27,  89 => 22,  86 => 21,  82 => 16,  79 => 15,  75 => 4,  72 => 3,  62 => 29,  60 => 27,  54 => 23,  52 => 21,  46 => 17,  44 => 15,  32 => 6,  29 => 5,  27 => 3,  23 => 1,);
+        return array (  94 => 26,  91 => 25,  87 => 21,  84 => 20,  80 => 16,  77 => 15,  73 => 4,  70 => 3,  60 => 27,  58 => 25,  53 => 22,  51 => 20,  46 => 17,  44 => 15,  32 => 6,  29 => 5,  27 => 3,  23 => 1,);
     }
 }

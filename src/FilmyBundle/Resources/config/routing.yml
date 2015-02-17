@@ -7,9 +7,6 @@ filmy_helloworld:
 filmy_moviesdisplay:
     path:	/Movie/{id}
     defaults: { _controller: FilmyBundle:Default:MoviesDisplay }
-filmy_commedy:
-    path:	/Types/commedy
-    defaults: { _controller: FilmyBundle:Default:Commedy }
 filmy_review:
     path:   /Review
     defaults: { _controller: FilmyBundle:Default:Review }
