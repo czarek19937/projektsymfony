@@ -2,20 +2,65 @@
 {% trans_default_domain 'FOSUserBundle' %}
 
 {% block header %}
+<div class="page-header">
+	<div class="row">
 
+		<div class="col-md-2">
+			<h3><small>Dołącz do nas!</small></h3><br>
+					
+					<a href="http://v-ie.uek.krakow.pl/~s173152/app_dev.php/"><img src="{{asset('bundles/filmy/images/')}}facebook.png" class="icon facebook"></a>
+					<a href="http://v-ie.uek.krakow.pl/~s173152/app_dev.php/"><img src="{{asset('bundles/filmy/images/')}}twitter.png" class="icon twitter"></a>
+					<a href="http://v-ie.uek.krakow.pl/~s173152/app_dev.php/"><img src="{{asset('bundles/filmy/images/')}}youtube.png" class="icon youtube"></a>
+					<a href="http://v-ie.uek.krakow.pl/~s173152/app_dev.php/"><img src="{{asset('bundles/filmy/images/')}}linkedin.png" class="icon linkedin"></a>
+					
+		</div>
+
+
+		<div class="col-md-8">
+            <div class="jumbotron">
+                <h1 style="text-align: center">Wypożyczalnia Pożycz se</h1>
+            </div>
+        </div>
+
+		<div class="col-md-2">
 {% if app.user.username is defined %}
-    <p>Zalogowano jako {{ app.user.username }}</p>
-    <a href="http://v-ie.uek.krakow.pl/~s173152/app_dev.php/OrdersList">Lista zamówień</a>
-    <br><a href="http://v-ie.uek.krakow.pl/~s173152/app_dev.php/OrdersBuy">Lista zakupionych filmów</a>
-    <br><a href="http://v-ie.uek.krakow.pl/~s173152/app_dev.php/logout">Wyloguj się</a>
+
+	 <div>
+      <ul class="nav navbar-nav">
+        <li class="active"><p>Zalogowano jako <a href="http://v-ie.uek.krakow.pl/~s173152/app_dev.php/profile"><strong><em>{{ app.user.username }}</em></strong></p></a></li>
+        <li><a href="http://v-ie.uek.krakow.pl/~s173152/app_dev.php/OrdersList">Lista zamówień</a></li>    
+        <li><a href="http://v-ie.uek.krakow.pl/~s173152/app_dev.php/OrdersBuy">Lista zakupionych filmów</a></li>
+        <li><a href="http://v-ie.uek.krakow.pl/~s173152/app_dev.php/logout">Wyloguj się</a></li>
+      </ul>
+    </div>
+    
+    
+    
+    
 
 {% else %}
-	<p>Niezalogowany użytkownik<br></p>
-	<a href="http://v-ie.uek.krakow.pl/~s173152/app_dev.php/login">Zaloguj się</a>
-	<br><a href="http://v-ie.uek.krakow.pl/~s173152/app_dev.php/register">Zarejestruj się</a>
+
+	<div>
+      <ul class="nav navbar-nav">
+        <li class="active"><p>Niezalogowany użytkownik<br></p></li>
+        <li><a href="http://v-ie.uek.krakow.pl/~s173152/app_dev.php/login">Zaloguj się</a></li>    
+        <li><a href="http://v-ie.uek.krakow.pl/~s173152/app_dev.php/register">Zarejestruj się</a></li>
+      </ul>
+    </div>
+
+
+	
+	
+	
 {% endif %}
+		</div>
+
+		
+	</div>
+</div>
 
 
+					
 {% endblock %}
 
 {% block menu %}

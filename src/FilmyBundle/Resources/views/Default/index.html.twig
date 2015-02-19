@@ -6,18 +6,22 @@
 
 
 {% block content %}
-<div style="height:20px; width:20px; padding:9px; 
-background:url(./images/ojciecchrzestny.jpg) no-repeat red"></div>
-<h3 style="text-align: center">Dostępne filmy:</h3>
+{#<div style="height:100%; width:100%; padding:9px; 
+background-image:url('{{asset('bundles/filmy/images/incepcja.jpg')}}')">#}
+        
+
+
+
+                <h1 style="text-align: center"><small>Dostępne filmy:</small></h1>
    
-<div class="container">           
-<div class="row">
+        <div class="container">           
+            <div class="row">
                  
         {% for moviedisplay in moviesdisplay %}
   
   
 
-<div class="col-md-1 col-md-offset-0">
+                <div class="col-md-1 col-md-offset-0" style="height:200px">
 
                 <br><a href="{{path('filmy_moviesdisplay', {'id': moviedisplay.id})}}">
                 <img src="{{asset('bundles/filmy/images/')}}{{ moviedisplay.image }}.jpg"
@@ -57,8 +61,8 @@ background:url(./images/ojciecchrzestny.jpg) no-repeat red"></div>
   </div>            
    </div>         
              
-    <div class="col-md-4">    
- <h3>Popularne fIlmy wg. ilości wypożyczeń:</h3>
+    <div class="col-md-3" style="height:200px">    
+ <h1><small>Popularne:</small></h1>
      
             {% for lend in lend %}
            
@@ -74,8 +78,8 @@ background:url(./images/ojciecchrzestny.jpg) no-repeat red"></div>
    
             {%endfor%}               
     </div>
-    <div class="col-md-4"> 
-<h3>Filmy wg. ilości recenzji</h3>
+    <div class="col-md-3" style="height:200px"> 
+<h1><small>Najczęściej recenzowane</small></h1>
                                 
             {% for opinion in opinion %}
               
@@ -91,13 +95,13 @@ background:url(./images/ojciecchrzestny.jpg) no-repeat red"></div>
             
             {%endfor%}
         </div>
- <div class="col-md-4">                
-<h3>Filmy przyporządkowane do gatunków</h3>                            
+ <div class="col-md-6" style="height:200px">                
+<h1><small>Według gatunków:</small></h1>                            
         
                  
             {% for kind in kind%}
             
-            <br>{{kind.genre}}<br>
+            <br><p class="text-capitalize"><strong>{{kind.genre}}</strong></p><br>
             {%for variety in variety%}
             {%if kind.genre==variety.genre%}
             <a href="{{path('filmy_moviesdisplay', {'id': variety.id})}}">
@@ -112,5 +116,6 @@ background:url(./images/ojciecchrzestny.jpg) no-repeat red"></div>
     
     
     {%endfor%}
+</div>
 </div>
 {% endblock %}

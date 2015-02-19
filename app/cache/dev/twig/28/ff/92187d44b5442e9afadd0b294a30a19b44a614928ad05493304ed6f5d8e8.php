@@ -35,46 +35,48 @@ class __TwigTemplate_28ff92187d44b5442e9afadd0b294a30a19b44a614928ad05493304ed6f
     // line 8
     public function block_content($context, array $blocks = array())
     {
-        // line 9
-        echo "<div style=\"height:20px; width:20px; padding:9px; 
-background:url(./images/ojciecchrzestny.jpg) no-repeat red\"></div>
-<h3 style=\"text-align: center\">Dostępne filmy:</h3>
+        // line 11
+        echo "        
+
+
+
+                <h1 style=\"text-align: center\"><small>Dostępne filmy:</small></h1>
    
-<div class=\"container\">           
-<div class=\"row\">
+        <div class=\"container\">           
+            <div class=\"row\">
                  
         ";
-        // line 16
+        // line 20
         $context['_parent'] = (array) $context;
         $context['_seq'] = twig_ensure_traversable((isset($context["moviesdisplay"]) ? $context["moviesdisplay"] : $this->getContext($context, "moviesdisplay")));
         foreach ($context['_seq'] as $context["_key"] => $context["moviedisplay"]) {
-            // line 17
+            // line 21
             echo "  
   
 
-<div class=\"col-md-1 col-md-offset-0\">
+                <div class=\"col-md-1 col-md-offset-0\" style=\"height:200px\">
 
                 <br><a href=\"";
-            // line 22
+            // line 26
             echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("filmy_moviesdisplay", array("id" => $this->getAttribute($context["moviedisplay"], "id", array()))), "html", null, true);
             echo "\">
                 <img src=\"";
-            // line 23
+            // line 27
             echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/filmy/images/"), "html", null, true);
             echo twig_escape_filter($this->env, $this->getAttribute($context["moviedisplay"], "image", array()), "html", null, true);
             echo ".jpg\"
                  alt=\"Filmy\" class=\"img-circle\" height=\"70\" width=\"70\"></a>
                         ";
-            // line 25
+            // line 29
             echo "<a href=\"";
             echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("filmy_moviesdisplay", array("id" => $this->getAttribute($context["moviedisplay"], "id", array()))), "html", null, true);
             echo "\">
                         ";
-            // line 26
+            // line 30
             echo twig_escape_filter($this->env, $this->getAttribute($context["moviedisplay"], "title", array()), "html", null, true);
             echo " </a>
                         ";
-            // line 53
+            // line 57
             echo "</div>  
 
                         
@@ -83,39 +85,39 @@ background:url(./images/ojciecchrzestny.jpg) no-repeat red\"></div>
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['moviedisplay'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 57
+        // line 61
         echo "  </div>            
    </div>         
              
-    <div class=\"col-md-4\">    
- <h3>Popularne fIlmy wg. ilości wypożyczeń:</h3>
+    <div class=\"col-md-3\" style=\"height:200px\">    
+ <h1><small>Popularne:</small></h1>
      
             ";
-        // line 63
+        // line 67
         $context['_parent'] = (array) $context;
         $context['_seq'] = twig_ensure_traversable($context["lend"]);
         foreach ($context['_seq'] as $context["_key"] => $context["lend"]) {
-            // line 64
+            // line 68
             echo "           
                     <a href=\"";
-            // line 65
+            // line 69
             echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("filmy_moviesdisplay", array("id" => $this->getAttribute($this->getAttribute($context["lend"], 0, array()), "id", array()))), "html", null, true);
             echo "\">
                         <img src=\"";
-            // line 66
+            // line 70
             echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/filmy/images/"), "html", null, true);
             echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute($context["lend"], 0, array()), "image", array()), "html", null, true);
             echo ".jpg\" alt=\"Filmy\"
                          class=\"img-circle\" height=\"70\" width=\"70\"></a>
                     
                     <br><a href=\"";
-            // line 69
+            // line 73
             echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("filmy_moviesdisplay", array("id" => $this->getAttribute($this->getAttribute($context["lend"], 0, array()), "id", array()))), "html", null, true);
             echo "\">";
             echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute($context["lend"], 0, array()), "title", array()), "html", null, true);
             echo "</a>
                     <br>Liczba wypożyczeń:";
-            // line 70
+            // line 74
             echo twig_escape_filter($this->env, $this->getAttribute($context["lend"], "c", array()), "html", null, true);
             echo "<br>
          
@@ -127,38 +129,38 @@ background:url(./images/ojciecchrzestny.jpg) no-repeat red\"></div>
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['lend'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 75
+        // line 79
         echo "               
     </div>
-    <div class=\"col-md-4\"> 
-<h3>Filmy wg. ilości recenzji</h3>
+    <div class=\"col-md-3\" style=\"height:200px\"> 
+<h1><small>Najczęściej recenzowane</small></h1>
                                 
             ";
-        // line 80
+        // line 84
         $context['_parent'] = (array) $context;
         $context['_seq'] = twig_ensure_traversable($context["opinion"]);
         foreach ($context['_seq'] as $context["_key"] => $context["opinion"]) {
-            // line 81
+            // line 85
             echo "              
                     <a href=\"";
-            // line 82
+            // line 86
             echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("filmy_moviesdisplay", array("id" => $this->getAttribute($this->getAttribute($context["opinion"], 0, array()), "id", array()))), "html", null, true);
             echo "\">
                         <img src=\"";
-            // line 83
+            // line 87
             echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/filmy/images/"), "html", null, true);
             echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute($context["opinion"], 0, array()), "image", array()), "html", null, true);
             echo ".jpg\" alt=\"Filmy\"
                          class=\"img-circle\" height=\"70\" width=\"70\"></a>
                     
                     <br><a href=\"";
-            // line 86
+            // line 90
             echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("filmy_moviesdisplay", array("id" => $this->getAttribute($this->getAttribute($context["opinion"], 0, array()), "id", array()))), "html", null, true);
             echo "\">";
             echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute($context["opinion"], 0, array()), "title", array()), "html", null, true);
             echo "</a>
                     <br>Liczba recenzji:";
-            // line 87
+            // line 91
             echo twig_escape_filter($this->env, $this->getAttribute($context["opinion"], "c", array()), "html", null, true);
             echo "<br>
          
@@ -170,56 +172,56 @@ background:url(./images/ojciecchrzestny.jpg) no-repeat red\"></div>
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['opinion'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 93
+        // line 97
         echo "        </div>
- <div class=\"col-md-4\">                
-<h3>Filmy przyporządkowane do gatunków</h3>                            
+ <div class=\"col-md-6\" style=\"height:200px\">                
+<h1><small>Według gatunków:</small></h1>                            
         
                  
             ";
-        // line 98
+        // line 102
         $context['_parent'] = (array) $context;
         $context['_seq'] = twig_ensure_traversable($context["kind"]);
         foreach ($context['_seq'] as $context["_key"] => $context["kind"]) {
-            // line 99
+            // line 103
             echo "            
-            <br>";
-            // line 100
+            <br><p class=\"text-capitalize\"><strong>";
+            // line 104
             echo twig_escape_filter($this->env, $this->getAttribute($context["kind"], "genre", array()), "html", null, true);
-            echo "<br>
+            echo "</strong></p><br>
             ";
-            // line 101
+            // line 105
             $context['_parent'] = (array) $context;
             $context['_seq'] = twig_ensure_traversable($context["variety"]);
             foreach ($context['_seq'] as $context["_key"] => $context["variety"]) {
-                // line 102
+                // line 106
                 echo "            ";
                 if (($this->getAttribute($context["kind"], "genre", array()) == $this->getAttribute($context["variety"], "genre", array()))) {
-                    // line 103
+                    // line 107
                     echo "            <a href=\"";
                     echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("filmy_moviesdisplay", array("id" => $this->getAttribute($context["variety"], "id", array()))), "html", null, true);
                     echo "\">
                 <img src=\"";
-                    // line 104
+                    // line 108
                     echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/filmy/images/"), "html", null, true);
                     echo twig_escape_filter($this->env, $this->getAttribute($context["variety"], "image", array()), "html", null, true);
                     echo ".jpg\" alt=\"Filmy\"
                  class=\"img-circle\" height=\"70\" width=\"70\"></a>
             <a href=\"";
-                    // line 106
+                    // line 110
                     echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("filmy_moviesdisplay", array("id" => $this->getAttribute($context["variety"], "id", array()))), "html", null, true);
                     echo "\">";
                     echo twig_escape_filter($this->env, $this->getAttribute($context["variety"], "title", array()), "html", null, true);
                     echo "</a>
             ";
                 }
-                // line 108
+                // line 112
                 echo "            ";
             }
             $_parent = $context['_parent'];
             unset($context['_seq'], $context['_iterated'], $context['_key'], $context['variety'], $context['_parent'], $context['loop']);
             $context = array_intersect_key($context, $_parent) + $_parent;
-            // line 109
+            // line 113
             echo "           
             
             
@@ -230,8 +232,9 @@ background:url(./images/ojciecchrzestny.jpg) no-repeat red\"></div>
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['kind'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 115
+        // line 119
         echo "</div>
+</div>
 ";
     }
 
@@ -247,6 +250,6 @@ background:url(./images/ojciecchrzestny.jpg) no-repeat red\"></div>
 
     public function getDebugInfo()
     {
-        return array (  234 => 115,  223 => 109,  217 => 108,  210 => 106,  204 => 104,  199 => 103,  196 => 102,  192 => 101,  188 => 100,  185 => 99,  181 => 98,  174 => 93,  162 => 87,  156 => 86,  149 => 83,  145 => 82,  142 => 81,  138 => 80,  131 => 75,  119 => 70,  113 => 69,  106 => 66,  102 => 65,  99 => 64,  95 => 63,  87 => 57,  78 => 53,  74 => 26,  69 => 25,  63 => 23,  59 => 22,  52 => 17,  48 => 16,  39 => 9,  36 => 8,  11 => 1,);
+        return array (  236 => 119,  225 => 113,  219 => 112,  212 => 110,  206 => 108,  201 => 107,  198 => 106,  194 => 105,  190 => 104,  187 => 103,  183 => 102,  176 => 97,  164 => 91,  158 => 90,  151 => 87,  147 => 86,  144 => 85,  140 => 84,  133 => 79,  121 => 74,  115 => 73,  108 => 70,  104 => 69,  101 => 68,  97 => 67,  89 => 61,  80 => 57,  76 => 30,  71 => 29,  65 => 27,  61 => 26,  54 => 21,  50 => 20,  39 => 11,  36 => 8,  11 => 1,);
     }
 }
