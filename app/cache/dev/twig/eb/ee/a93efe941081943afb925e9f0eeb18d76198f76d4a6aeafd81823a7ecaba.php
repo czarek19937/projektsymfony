@@ -31,6 +31,12 @@ class __TwigTemplate_ebeea93efe941081943afb925e9f0eeb18d76198f76d4a6aeafd81823a7
         // line 6
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/filmy/css/bootstrap.css"), "html", null, true);
         echo "\">
+<link rel=\"stylesheet\" type=\"text/css\" href=\"";
+        // line 7
+        echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/filmy/css/global.css"), "html", null, true);
+        echo "\">
+<script src=\"https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js\"></script>
+<script src=\"http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js\"></script>\t<!-- skrypty do rozwijanej listy w orderslist -->
 </head>
 
 
@@ -40,23 +46,23 @@ class __TwigTemplate_ebeea93efe941081943afb925e9f0eeb18d76198f76d4a6aeafd81823a7
 
 \t\t
 \t\t";
-        // line 15
+        // line 18
         $this->displayBlock('header', $context, $blocks);
-        // line 17
+        // line 20
         echo "
 \t</header>
 \t
 \t\t\t";
-        // line 20
+        // line 23
         $this->displayBlock('menu', $context, $blocks);
-        // line 22
+        // line 25
         echo "\t\t
 
 \t
 \t\t\t";
-        // line 25
+        // line 28
         $this->displayBlock('content', $context, $blocks);
-        // line 27
+        // line 30
         echo "\t\t
 \t
 \t
@@ -73,24 +79,24 @@ class __TwigTemplate_ebeea93efe941081943afb925e9f0eeb18d76198f76d4a6aeafd81823a7
         echo "\t";
     }
 
-    // line 15
+    // line 18
     public function block_header($context, array $blocks = array())
     {
-        // line 16
+        // line 19
         echo "\t\t";
     }
 
-    // line 20
+    // line 23
     public function block_menu($context, array $blocks = array())
     {
-        // line 21
+        // line 24
         echo "\t\t\t";
     }
 
-    // line 25
+    // line 28
     public function block_content($context, array $blocks = array())
     {
-        // line 26
+        // line 29
         echo "\t\t\t";
     }
 
@@ -106,6 +112,6 @@ class __TwigTemplate_ebeea93efe941081943afb925e9f0eeb18d76198f76d4a6aeafd81823a7
 
     public function getDebugInfo()
     {
-        return array (  94 => 26,  91 => 25,  87 => 21,  84 => 20,  80 => 16,  77 => 15,  73 => 4,  70 => 3,  60 => 27,  58 => 25,  53 => 22,  51 => 20,  46 => 17,  44 => 15,  32 => 6,  29 => 5,  27 => 3,  23 => 1,);
+        return array (  100 => 29,  97 => 28,  93 => 24,  90 => 23,  86 => 19,  83 => 18,  79 => 4,  76 => 3,  66 => 30,  64 => 28,  59 => 25,  57 => 23,  52 => 20,  50 => 18,  36 => 7,  32 => 6,  29 => 5,  27 => 3,  23 => 1,);
     }
 }

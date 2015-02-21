@@ -37,7 +37,7 @@ class __TwigTemplate_e206fc4a05a1c6e4a1619581ba67fa393aea4cf02745d121d78de2a07b6
     public function block_header($context, array $blocks = array())
     {
         // line 4
-        echo "\t\t<h1>Review</h1>
+        echo "\t\t
 \t";
     }
 
@@ -45,18 +45,22 @@ class __TwigTemplate_e206fc4a05a1c6e4a1619581ba67fa393aea4cf02745d121d78de2a07b6
     public function block_content($context, array $blocks = array())
     {
         // line 10
-        echo "\t\t
-\t\t<h2>POZOSTAW SWOJ KOMENTARZ</h2>
+        echo "
+<div class=\"container\">           
+    <div class=\"row\" style=\"text-align: center\">
+
+\t\t<h2>Dodaj Recenzje</h2>
 \t\t
 \t\t<form method=\"POST\">
 \t\t";
-        // line 14
+        // line 17
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), 'widget');
         echo "
 \t\t<button type=\"submit\">Dodaj Wpis</button>
 \t\t</form>
 \t\t
-    
+</div>
+\t</div>    
         
  
     \t
@@ -77,6 +81,6 @@ class __TwigTemplate_e206fc4a05a1c6e4a1619581ba67fa393aea4cf02745d121d78de2a07b6
 
     public function getDebugInfo()
     {
-        return array (  54 => 14,  48 => 10,  45 => 9,  40 => 4,  37 => 3,  11 => 1,);
+        return array (  57 => 17,  48 => 10,  45 => 9,  40 => 4,  37 => 3,  11 => 1,);
     }
 }

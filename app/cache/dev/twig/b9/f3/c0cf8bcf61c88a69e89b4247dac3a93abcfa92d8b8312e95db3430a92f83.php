@@ -64,9 +64,9 @@ class __TwigTemplate_b9f3c0cf8bcf61c88a69e89b4247dac3a93abcfa92d8b8312e95db3430a
 
 
 \t\t<div class=\"col-md-8\">
-            <div class=\"jumbotron\">
+            
                 <h1 style=\"text-align: center\">Wypożyczalnia Pożycz se</h1>
-            </div>
+            
         </div>
 
 \t\t<div class=\"col-md-2\">

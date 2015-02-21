@@ -1,21 +1,25 @@
 {% extends "FilmyBundle::bars.html.twig" %}
 
 	{% block header %}
-		<h1>Review</h1>
+		
 	{% endblock %}
 
 
 
 	{% block content %}
-		
-		<h2>POZOSTAW SWOJ KOMENTARZ</h2>
+
+<div class="container">           
+    <div class="row" style="text-align: center">
+
+		<h2>Dodaj Recenzje</h2>
 		
 		<form method="POST">
 		{{ form_widget(form) }}
 		<button type="submit">Dodaj Wpis</button>
 		</form>
 		
-    
+</div>
+	</div>    
         
  
     	

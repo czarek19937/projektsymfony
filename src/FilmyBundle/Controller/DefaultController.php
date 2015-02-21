@@ -351,7 +351,8 @@ class DefaultController extends Controller
         
         $email = $this->getUser()->getEmail();
         $id = $this->getUser()->getId();
-        echo $id,$email;
+        $idf = $this->getMovies()->getId();
+        echo $id, $email, $idf;
         $orders = new Orders();
         
         $form = $this ->createForm(new OrdersType(), $orders);

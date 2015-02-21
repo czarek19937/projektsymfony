@@ -1,14 +1,25 @@
 {% extends "FilmyBundle::bars.html.twig" %}
 
 	{% block header %}
-		<h1>Orders</h1>
+		
 	{% endblock %}
 
 
 
 	{% block content %}
-		
-		<h2>Dodaj Order</h2>
+
+	<?php
+    $var = $GET['movies.id'];
+    echo $movies.id
+	?>
+	{#{{a}}#}
+	{#{{b}}#}
+	{#{{c}}#}
+
+<div class="container">           
+    <div class="row" style="text-align: center">
+
+		<h2>Dodaj Zamówienie</h2>
 		
 		<form method="POST">
 		{#{{ form_widget(form.status, {value: "28" } ) }}#}
@@ -18,7 +29,8 @@
 		<button type="submit">Dodaj Wpis</button>
 		</form>
 		
-    
+</div>
+	</div>    
         
  
     	

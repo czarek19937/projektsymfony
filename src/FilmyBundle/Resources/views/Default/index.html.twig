@@ -1,191 +1,196 @@
-{% extends "FilmyBundle::bars.html.twig" %}
-{% trans_default_domain 'FOSUserBundle' %}
+    {% extends "FilmyBundle::bars.html.twig" %}
+    {% trans_default_domain 'FOSUserBundle' %}
 
 
 
 
 
-{% block content %}
-{#<div style="height:100%; width:100%; padding:9px; 
-background-image:url('{{asset('bundles/filmy/images/incepcja.jpg')}}')">#}
-        
-
-
-
-                <h1 style="text-align: center"><small>Dostępne filmy:</small></h1>
-   
-<div class="container">           
+    {% block content %}
     
-                 
-        {% for moviedisplay in moviesdisplay %}
-  
-  
-
-        <div class="col-md-1 col-md-offset-0" style="height:200px">
-
-                <br><a href="{{path('filmy_moviesdisplay', {'id': moviedisplay.id})}}">
-                <img src="{{asset('bundles/filmy/images/')}}{{ moviedisplay.image }}.jpg"
-                 alt="Filmy" class="img-circle" height="70" width="70">
-                        {#Tytul:#}
-                        {{ moviedisplay.title }} </a>
-                        {#<br>Opis:{{ moviedisplay.description }}
-                        <br>Id_filmu:{{ moviedisplay.id }}
-                        <br>Cena:{{ moviedisplay.price }}
-                      
-                        <br>Aktorzy:
-                        {% for actor in actors %}
-                        {% if (actor.idfilm == moviedisplay.id) %}
-                        {{ actor.Name }}
-                            {% endif %}
-                            {% endfor %}
+            
 
 
-                        <br>Gatunek:
-                        {% for genre in genres %}
-                        {% if (genre.idfilm == moviedisplay.id) %}
-                        {{ genre.genre }}
-                            {% endif %}
-                            {% endfor %}
+
+                    <h1 style="text-align: center"><small>Dostępne filmy:</small></h1>
+       
+    <div class="container">           
+        <div class="row">
+                     
+            {% for moviedisplay in moviesdisplay %}
+      
+      
+
+            <div class="col-md-1" style="height:200px">
+
+                    <br><a href="{{path('filmy_moviesdisplay', {'id': moviedisplay.id})}}">
+                    <img src="{{asset('bundles/filmy/images/')}}{{ moviedisplay.image }}.jpg"
+                     alt="Filmy" class="img-circle" height="70" width="70">
+                            {#Tytul:#}
+                            {{ moviedisplay.title }} </a>
+                            {#<br>Opis:{{ moviedisplay.description }}
+                            <br>Id_filmu:{{ moviedisplay.id }}
+                            <br>Cena:{{ moviedisplay.price }}
+                          
+                            <br>Aktorzy:
+                            {% for actor in actors %}
+                            {% if (actor.idfilm == moviedisplay.id) %}
+                            {{ actor.Name }}
+                                {% endif %}
+                                {% endfor %}
 
 
-                        {% set i = 0 %}
-                        {% for review in reviews %}
-                            {% if (review.idfilm == moviedisplay.id) %}
-                                {% set i = i + 1 %}
-                            {% endif %}
-                        {% endfor %}#}
-        </div>  
+                            <br>Gatunek:
+                            {% for genre in genres %}
+                            {% if (genre.idfilm == moviedisplay.id) %}
+                            {{ genre.genre }}
+                                {% endif %}
+                                {% endfor %}
 
-                        
-            {% endfor %}
-                
+
+                            {% set i = 0 %}
+                            {% for review in reviews %}
+                                {% if (review.idfilm == moviedisplay.id) %}
+                                    {% set i = i + 1 %}
+                                {% endif %}
+                            {% endfor %}#}
+            </div>  
+                               
+                {% endfor %}
+         </div>
+    </div>            
+
+
+    <div class="container">            
+        <div class="row">         
+            <div class="col-md-3" style="height:200px">    
+                    <h1><small>Popularne:</small></h1><br>
          
+                {% for lend in lend %}
+               
+                        <a href="{{path('filmy_moviesdisplay', {'id': lend.0.id})}}">
+                            <img src="{{asset('bundles/filmy/images/')}}{{ lend.0.image }}.jpg" alt="Filmy"
+                             class="img-circle" height="70" width="70">
+                                <br>{{lend.0.title}}</a>
+                        <br>Liczba wypożyczeń:{{ lend.c}}<br><br>
              
-        <div class="col-md-3" style="height:200px">    
-                <h1><small>Popularne:</small></h1><br>
-     
-            {% for lend in lend %}
-           
-                    <a href="{{path('filmy_moviesdisplay', {'id': lend.0.id})}}">
-                        <img src="{{asset('bundles/filmy/images/')}}{{ lend.0.image }}.jpg" alt="Filmy"
-                         class="img-circle" height="70" width="70">
-                            <br>{{lend.0.title}}</a>
-                    <br>Liczba wypożyczeń:{{ lend.c}}<br><br>
-         
-            
-    
-   
-            {%endfor%}               
-        </div>
-
-
-        <div class="col-md-3" style="height:200px"> 
-                <h1><small>Najczęściej recenzowane</small></h1><br>
-                                
-            {% for opinion in opinion %}
-              
-                    <a href="{{path('filmy_moviesdisplay', {'id': opinion.0.id})}}">
-                        <img src="{{asset('bundles/filmy/images/')}}{{ opinion.0.image }}.jpg" alt="Filmy"
-                         class="img-circle" height="70" width="70">                    
-                            <br>{{opinion.0.title}}</a>
-                    <br>Liczba recenzji:{{ opinion.c}}<br><br>
-         
-            
-    
-            
-            {%endfor%}
-        </div>
-
-
-
-
-        <div class="col-md-6" style="height:200px">                
-                <h1><small>Według gatunków:</small></h1>                            
+                
         
-                 
-            {% for kind in kind%}
-            
+       
+                {%endfor%}               
+            </div>
+
+
+            <div class="col-md-3" style="height:200px"> 
+                    <h1><small>Najczęściej recenzowane</small></h1><br>
+                                    
+                {% for opinion in opinion %}
+                  
+                        <a href="{{path('filmy_moviesdisplay', {'id': opinion.0.id})}}">
+                            <img src="{{asset('bundles/filmy/images/')}}{{ opinion.0.image }}.jpg" alt="Filmy"
+                             class="img-circle" height="70" width="70">                    
+                                <br>{{opinion.0.title}}</a>
+                        <br>Liczba recenzji:{{ opinion.c}}<br><br>
+             
                 
-
-            <br><p class="text-capitalize"><strong>{{kind.genre}}</strong></p><br>
-            {%for variety in variety%}
-            {%if kind.genre==variety.genre%}
-            <a href="{{path('filmy_moviesdisplay', {'id': variety.id})}}">
-                <img src="{{asset('bundles/filmy/images/')}}{{ variety.image }}.jpg" alt="Filmy"
-                 class="img-circle" height="70" width="70"></a>
-            <a href="{{path('filmy_moviesdisplay', {'id': variety.id})}}">{{ variety.title }}</a>
-            {%endif%}
-
-                
-
-            {%endfor%}
-
-
-
-           
-            
-            
-    
-    
-    {%endfor%}
-
-    <br><br>
-    <div class="col-md-6" style="height:200px">                
-                                        
         
-                 
-            {% for kind in kind%}
-            
                 
-
-            <br><p class="text-capitalize"><strong>{{kind.genre}}</strong></p><br>
-            <table>
-            {%for row in variety|batch(3)%}
-                 <tr>
-                {% for column in row %}
-                    {%if kind.genre==column.genre%}
-                {{column.title}}
-                    {%endif%}
                 {%endfor%}
-                </tr>
+            </div>
 
-            {%endfor%}
-            </table>
-            {%endfor%}
+
+
+
+            <div class="col-md-6" style="height:200px">                
+                    <h1><small>Według gatunków:</small></h1>                            
+            
+                     
+                {% for kind in kind%}
+                
+                    
+
+                <br><p class="text-capitalize"><strong>{{kind.genre}}</strong></p><br>
+                {%for variety in variety%}
+                {%if kind.genre==variety.genre%}
+                <a href="{{path('filmy_moviesdisplay', {'id': variety.id})}}">
+                    <img src="{{asset('bundles/filmy/images/')}}{{ variety.image }}.jpg" alt="Filmy"
+                     class="img-circle" height="70" width="70"></a>
+                <a href="{{path('filmy_moviesdisplay', {'id': variety.id})}}">{{ variety.title }}</a>
+                {%endif%}
+
+                    
+
+                {%endfor%}
+                {%endfor%}
+
+            </div>
+
+            {#<div class="col-md-6" style="height:200px">                
+                                            
+            
+                      
+                {% for kind in kind%}
+                
+                    
+
+                <br><p class="text-capitalize"><strong>{{kind.genre}}</strong></p><br>
+                    <table>
+                {%for row in variety|batch(3)%}
+                    
+                    <tr>
+                    {% for column in row %}
+                    
+                        {%if kind.genre==column.genre%}
+                    <td>{{column.title}}</td>
+                        {%endif%}
+                    
+                    {%endfor%}
+                    </tr>
+
+                {%endfor%}
+                    </table>
+                {%endfor%}
+                
+            </div>#}
+        </div>
+    </div>
+
+
+
         
 
-           
-            
-            
-    
-    
-    
-
-            
         
+
+        
+                
+                
+        
+        
+        
+
+                
             
-            
-    
-    
-    
+                
+                
+        
+        
+        
 
 
 
 
-{#<div class="container">
-<div class="page-header">
-</div>
-<p>Wszystkie prawa zastrzeżone</p>
-</div>#}
+    {#<div class="container">
+    <div class="page-header">
+    </div>
+    <p>Wszystkie prawa zastrzeżone</p>
+    </div>#}
 
 
 
 
 
-</div>
 
 
-</div>
 
 
-{% endblock %}
+
+    {% endblock %}

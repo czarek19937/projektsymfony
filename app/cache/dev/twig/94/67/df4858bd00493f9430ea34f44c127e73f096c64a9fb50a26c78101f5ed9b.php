@@ -37,91 +37,126 @@ class __TwigTemplate_9467df4858bd00493f9430ea34f44c127e73f096c64a9fb50a26c78101f
     public function block_header($context, array $blocks = array())
     {
         // line 4
-        echo "\t\t<h1>ordersbuy</h1>
+        echo "\t<div class=\"container\">   
+        <h1 style=\"text-align: center\">Lista zakupów</h1>
+    </div>
 \t";
     }
 
-    // line 9
+    // line 11
     public function block_content($context, array $blocks = array())
     {
-        // line 10
+        // line 12
         echo "\t\t
-\t\t
-\t\t\t
-\t\t
+\t
+<div class=\"container\">           
+    <div class=\"row\">\t\t\t
+\t\t<input type=button onClick=\"alert('wyświetla się komunikat')\" value=\"Ogladaj\">    
 
-
+            <div class=\"accordion\" id=\"accordion2\">
             ";
-        // line 16
-        $context["z"] = "Zapłacone";
-        // line 17
-        echo "            ";
-        echo twig_escape_filter($this->env, (isset($context["z"]) ? $context["z"] : $this->getContext($context, "z")), "html", null, true);
-        echo "
-\t\t\t";
-        // line 18
-        $context["i"] = 0;
         // line 19
+        $context["z"] = "Zapłacone";
+        // line 20
+        echo "            
+\t\t\t";
+        // line 21
+        $context["i"] = 0;
+        // line 22
         echo "    \t\t";
         $context['_parent'] = (array) $context;
         $context['_seq'] = twig_ensure_traversable($context["orders"]);
         foreach ($context['_seq'] as $context["_key"] => $context["orders"]) {
             if (($this->getAttribute($context["orders"], "status", array()) == (isset($context["z"]) ? $context["z"] : $this->getContext($context, "z")))) {
-                // line 20
-                echo "    \t\t
-    \t\t";
-                // line 21
-                $context["i"] = ((isset($context["i"]) ? $context["i"] : $this->getContext($context, "i")) + 1);
-                // line 22
-                echo "    \t\t<br>Zamówienie ";
-                echo twig_escape_filter($this->env, (isset($context["i"]) ? $context["i"] : $this->getContext($context, "i")), "html", null, true);
-                echo "
-    \t\t<br>Status zamówienia:";
                 // line 23
+                echo "
+
+            <div class=\"accordion-group\">
+        <div class=\"col-md-2\">\t\t
+    \t\t";
+                // line 27
+                $context["i"] = ((isset($context["i"]) ? $context["i"] : $this->getContext($context, "i")) + 1);
+                // line 28
+                echo "                <div class=\"accordion-heading\">
+            <a class=\"accordion-toggle\" data-toggle=\"collapse\" href=\"#collapse";
+                // line 29
+                echo twig_escape_filter($this->env, (isset($context["i"]) ? $context["i"] : $this->getContext($context, "i")), "html", null, true);
+                echo "\">
+    \t\t<br><button type=\"button\" class=\"btn btn-default\">Zamówienie ";
+                // line 30
+                echo twig_escape_filter($this->env, (isset($context["i"]) ? $context["i"] : $this->getContext($context, "i")), "html", null, true);
+                echo "</button></a>
+                </div>
+
+
+                    <div id=\"collapse";
+                // line 34
+                echo twig_escape_filter($this->env, (isset($context["i"]) ? $context["i"] : $this->getContext($context, "i")), "html", null, true);
+                echo "\" class=\"accordion-body collapse in\">
+                        <div class=\"accordion-inner\">
+    \t\t<br>Status zamówienia:";
+                // line 36
                 echo twig_escape_filter($this->env, $this->getAttribute($context["orders"], "status", array()), "html", null, true);
                 echo "
     \t\t<br>Forma zapłaty:";
-                // line 24
+                // line 37
                 echo twig_escape_filter($this->env, $this->getAttribute($context["orders"], "form", array()), "html", null, true);
                 echo "
     \t\t<br>Warunki zamówienia:";
-                // line 25
+                // line 38
                 echo twig_escape_filter($this->env, $this->getAttribute($context["orders"], "conditions", array()), "html", null, true);
                 echo "
     \t\t<br>Film wypożyczony:
     \t\t";
-                // line 27
+                // line 40
                 $context['_parent'] = (array) $context;
                 $context['_seq'] = twig_ensure_traversable($context["movies"]);
                 foreach ($context['_seq'] as $context["_key"] => $context["movies"]) {
-                    // line 28
+                    // line 41
                     echo "                        ";
                     if (($this->getAttribute($context["orders"], "idfilm", array()) == $this->getAttribute($context["movies"], "id", array()))) {
-                        // line 29
+                        // line 42
                         echo "                        ";
                         echo twig_escape_filter($this->env, $this->getAttribute($context["movies"], "title", array()), "html", null, true);
                         echo "<br>
                             ";
                     }
-                    // line 31
+                    // line 44
                     echo "                            ";
                 }
                 $_parent = $context['_parent'];
                 unset($context['_seq'], $context['_iterated'], $context['_key'], $context['movies'], $context['_parent'], $context['loop']);
                 $context = array_intersect_key($context, $_parent) + $_parent;
-                // line 32
-                echo "    \t\t";
+                // line 45
+                echo "
+
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+
+            </div>
+        </div>                    
+    \t\t";
             }
         }
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['orders'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 33
-        echo "    \t\t
-    \t\t
+        // line 58
+        echo "    
+
+
+
+
+    </div>\t\t
+</div>    \t\t
  
     
-    <input type=button onClick=\"alert('wyświetla się komunikat')\" value=\"Ogladaj\">
+    
 
     
    
@@ -151,6 +186,6 @@ class __TwigTemplate_9467df4858bd00493f9430ea34f44c127e73f096c64a9fb50a26c78101f
 
     public function getDebugInfo()
     {
-        return array (  120 => 33,  113 => 32,  107 => 31,  101 => 29,  98 => 28,  94 => 27,  89 => 25,  85 => 24,  81 => 23,  76 => 22,  74 => 21,  71 => 20,  65 => 19,  63 => 18,  58 => 17,  56 => 16,  48 => 10,  45 => 9,  40 => 4,  37 => 3,  11 => 1,);
+        return array (  150 => 58,  131 => 45,  125 => 44,  119 => 42,  116 => 41,  112 => 40,  107 => 38,  103 => 37,  99 => 36,  94 => 34,  87 => 30,  83 => 29,  80 => 28,  78 => 27,  72 => 23,  66 => 22,  64 => 21,  61 => 20,  59 => 19,  50 => 12,  47 => 11,  40 => 4,  37 => 3,  11 => 1,);
     }
 }

@@ -37,6 +37,9 @@ class __TwigTemplate_678cf27d764656581c6ea3c8b67c67fa5bf52ce4df93923e012703c79e3
     {
         // line 4
         $this->env->loadTemplate("FOSUserBundle:Profile:show_content.html.twig")->display($context);
+        // line 5
+        echo "<br><a href=\"http://v-ie.uek.krakow.pl/~s173152/app_dev.php/\">Wróć do strony głównej</a>
+";
     }
 
     public function getTemplateName()
@@ -51,6 +54,6 @@ class __TwigTemplate_678cf27d764656581c6ea3c8b67c67fa5bf52ce4df93923e012703c79e3
 
     public function getDebugInfo()
     {
-        return array (  39 => 4,  36 => 3,  11 => 1,);
+        return array (  41 => 5,  39 => 4,  36 => 3,  11 => 1,);
     }
 }
