@@ -136,11 +136,6 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
             return array (  '_controller' => 'FilmyBundle\\Controller\\DefaultController::indexAction',  '_route' => 'filmy_homepage',);
         }
 
-        // filmy_helloworld
-        if ($pathinfo === '/hello') {
-            return array (  '_controller' => 'FilmyBundle\\Controller\\DefaultController::helloworldAction',  '_route' => 'filmy_helloworld',);
-        }
-
         // filmy_moviesdisplay
         if (0 === strpos($pathinfo, '/Movie') && preg_match('#^/Movie/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
             return $this->mergeDefaults(array_replace($matches, array('_route' => 'filmy_moviesdisplay')), array (  '_controller' => 'FilmyBundle\\Controller\\DefaultController::MoviesDisplayAction',));
@@ -166,19 +161,9 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
             return array (  '_controller' => 'FilmyBundle\\Controller\\DefaultController::OrdersAction',  '_route' => 'filmy_orders',);
         }
 
-        // filmy_moviesview
-        if ($pathinfo === '/MoviesView') {
-            return array (  '_controller' => 'FilmyBundle\\Controller\\DefaultController::MoviesViewAction',  '_route' => 'filmy_moviesview',);
-        }
-
         // filmy_actorsview
         if ($pathinfo === '/ActorsView') {
             return array (  '_controller' => 'FilmyBundle\\Controller\\DefaultController::ActorsViewAction',  '_route' => 'filmy_actorsview',);
-        }
-
-        // filmy_query
-        if ($pathinfo === '/Query') {
-            return array (  '_controller' => 'FilmyBundle\\Controller\\DefaultController::QueryAction',  '_route' => 'filmy_query',);
         }
 
         // filmy_reviewsdisplay

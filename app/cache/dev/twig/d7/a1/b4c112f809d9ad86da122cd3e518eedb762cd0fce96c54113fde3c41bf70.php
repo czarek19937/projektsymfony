@@ -51,20 +51,19 @@ class __TwigTemplate_d7a1b4c112f809d9ad86da122cd3e518eedb762cd0fce96c54113fde3c4
         // line 12
         echo twig_escape_filter($this->env, $this->getAttribute((isset($context["orders"]) ? $context["orders"] : $this->getContext($context, "orders")), "status", array()), "html", null, true);
         echo "
-\t\t<br>Termin złożenia zamówienia:
 \t\t<br>Forma płatności";
-        // line 14
+        // line 13
         echo twig_escape_filter($this->env, $this->getAttribute((isset($context["orders"]) ? $context["orders"] : $this->getContext($context, "orders")), "form", array()), "html", null, true);
         echo "
 \t\t<br>Warunki odbioru:";
-        // line 15
+        // line 14
         echo twig_escape_filter($this->env, $this->getAttribute((isset($context["orders"]) ? $context["orders"] : $this->getContext($context, "orders")), "conditions", array()), "html", null, true);
         echo "
 \t\t<br>Zamówienie na Film(idfilmu):";
-        // line 16
+        // line 15
         echo twig_escape_filter($this->env, $this->getAttribute((isset($context["orders"]) ? $context["orders"] : $this->getContext($context, "orders")), "idFilm", array()), "html", null, true);
         echo "
-\t\t
+
     
         
  
@@ -86,6 +85,6 @@ class __TwigTemplate_d7a1b4c112f809d9ad86da122cd3e518eedb762cd0fce96c54113fde3c4
 
     public function getDebugInfo()
     {
-        return array (  65 => 16,  61 => 15,  57 => 14,  52 => 12,  48 => 10,  45 => 9,  40 => 4,  37 => 3,  11 => 1,);
+        return array (  64 => 15,  60 => 14,  56 => 13,  52 => 12,  48 => 10,  45 => 9,  40 => 4,  37 => 3,  11 => 1,);
     }
 }
